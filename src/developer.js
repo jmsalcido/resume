@@ -1,11 +1,11 @@
 const developer = {
     profile: {
-        name: 'Developer Name',
+        name: 'Jose Salcido',
         tagline: 'Full Stack Developer'
     },
     contact: {
-        email: 'info@otfusion.org',
-        phone: '+12345787222',
+        email: 'jose@otfusion.org',
+        phone: '+526441732018',
         website: {
             name: 'jmsalcido.dev',
             url: 'https://jmsalcido.dev'
@@ -16,7 +16,7 @@ const developer = {
     },
     education: [{
         degree: 'Software Engineering',
-        school: 'School Name',
+        school: 'Instituto Tecnologico de Sonora',
         time: '2009-2013'
     }],
     languages: [{

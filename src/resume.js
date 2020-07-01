@@ -1,45 +1,74 @@
 const resume = {
-    summary: 'Lorem ipsum dolor sit amet, consectetur **adipiscing** elit. Sed dapibus hendrerit fringilla. Nam sit amet felis vel velit aliquam rhoncus porttitor eu erat. Aenean volutpat porttitor hendrerit. Cras sodales magna lobortis mauris accumsan, non efficitur ligula varius. Sed tellus eros, iaculis non tempus ac, porttitor id velit. Vivamus felis mauris, pretium mollis turpis sit amet, vulputate vestibulum purus. Nulla ac eleifend nulla. Curabitur vitae velit ante.',
+    summary: 'As an **Engineer** in any team, my main **goal** is to help my customers to fulfill their objectives. I am good at adapting to any style of development with any technology. I propose and apply changes to leverage our team and get things done in a **wholesome** manner.',
     experiences: [
         {
-            position: 'Lead Developer',
-            company: 'ACME',
+            position: 'Mobile & API - Tech Lead',
+            company: 'Pioneer Works, Inc, Homebase',
             location: 'Remote',
-            time: '2017 - current',
-            description: 'Lorem ipsum dolor sit amet, consectetur **adipiscing** elit. Sed dapibus hendrerit fringilla. Nam sit amet felis vel velit aliquam rhoncus porttitor eu erat. Aenean volutpat porttitor hendrerit. Cras sodales magna lobortis mauris accumsan, non efficitur ligula varius. Sed tellus eros, iaculis non tempus ac, porttitor id velit. Vivamus felis mauris, pretium mollis turpis sit amet, vulputate vestibulum purus. Nulla ac eleifend nulla. Curabitur vitae velit ante.',
+            time: '2019 - 2020',
+            description: 'As a ​ **Tech Leader**, ​ I worked with the ​ mobile native apps ​ engineers and internal ​ API engineering team​ , I made decisions over how and which endpoints should be used and how those should be implemented by our engineers.', 
+            description_extra: 'Worked 100% remote with engineers on US, Egypt and Mexico',
             technologies: [
+                'Ruby',
                 'RoR',
-                'React'
+                'Android with Java and Kotlin',
+                'Objective-C and Swift'
             ]
         },
         {
-            position: 'Software Developer',
-            company: 'ACME',
+            position: 'Senior Software Engineer',
+            company: 'Pioneer Works, Inc, Homebase',
             location: 'Remote',
+            time: '2018 - 2020',
+            description: 'As a​ **Senior Software Engineer**,​ I worked on the entire tech stack of Homebase​, from ​**Mobile Native**​ on ​Android​ and ​iOS​ to the API ​in​ Ruby​, different ​**React** components for the web app, Homebase mobile native app has **1’000’000+** installs in the US only.', 
+            technologies: [
+                'Ruby',
+                'RoR',
+                'React and Redux (Web app)',
+                'Android with Java and Kotlin',
+                'Objective-C and Swift',
+                'AWS Kinesis/Firehose/Redshift for internal analytics.'
+            ]
+        },
+        {
+            position: 'Team Lead',
+            company: 'Nearsoft Inc',
+            location: 'Hermosillo',
             time: '2016 - 2017',
-            description: 'Lorem ipsum dolor sit amet, consectetur **adipiscing** elit. Sed dapibus hendrerit fringilla. Nam sit amet felis vel velit aliquam rhoncus porttitor eu erat. Aenean volutpat porttitor hendrerit. Cras sodales magna lobortis mauris accumsan, non efficitur ligula varius. Sed tellus eros, iaculis non tempus ac, porttitor id velit. Vivamus felis mauris, pretium mollis turpis sit amet, vulputate vestibulum purus. Nulla ac eleifend nulla. Curabitur vitae velit ante.',
+            description: 'I worked as a **Team Lead** to create different provider tools ​ sold​ to a client in Canada in the Retail Industry.',
             technologies: [
-                'RoR',
-                'React'
+                'PHP + Wordpress + woocommerce',
+                'Shopify API',
+                'Digital Ocean',
+                'Java and VertX',
+                'NodeJS',
+                'Ruby and RoR'
             ]
         },
         {
-            position: 'Software Developer',
-            company: 'Company',
-            location: 'Mexico',
-            time: '2013 - 2016',
-            description: 'Lorem ipsum dolor sit amet, consectetur **adipiscing** elit. Sed dapibus hendrerit fringilla. Nam sit amet felis vel velit aliquam rhoncus porttitor eu erat. Aenean volutpat porttitor hendrerit. Cras sodales magna lobortis mauris accumsan, non efficitur ligula varius. Sed tellus eros, iaculis non tempus ac, porttitor id velit. Vivamus felis mauris, pretium mollis turpis sit amet, vulputate vestibulum purus. Nulla ac eleifend nulla. Curabitur vitae velit ante.',
+            position: 'Software Engineer',
+            company: 'Switchfly Inc via Nearsoft Inc',
+            location: 'Hermosillo',
+            time: '2013 - 2017',
+            description: 'As a ​**Software Engineer**​ I worked on all the levels of the monolithic application. From the legacy code written in ColdFusion and Freemarker with Java 6 to the Single Page Application written in EmberJS with a custom framework that reproduces Redux.',
+            description_extra: 'I **leaded** several third party connectors for different ​**CRS**​ that were critical to​ launch​ multiple clients within the company. Worked with clients like **American Express**, **American Airlines**, **Aeromexico** and **Emirates**',
             technologies: [
-                'RoR',
-                'React',
-                'Java',
-                'PHP'
+                'Java 6,7,8',
+                'EmberJS',
+                'ColdFusion',
+                'JavaScript',
+                'PostgresSQL'
             ]
         }
     ],
     projects: {
-        header: 'Lorem ipsum dolor sit amet, consectetur **adipiscing** elit. Sed dapibus hendrerit fringilla. Nam sit amet felis vel velit aliquam rhoncus',
+        header: 'Some pet projects, those are normally **open-source** or open to colaboration.',
         items: [
+            {
+                name: 'Batos Jugando',
+                url: 'https://batosjugando.com',
+                description: 'A community of people playing video games, creating podcasts, stream and internet content.'
+            },
             {
                 name: 'resume-react',
                 url: 'https://github.com/jmsalcido/resume-react',
@@ -48,6 +77,14 @@ const resume = {
         ]
     },
     skills: [
+        {
+            name: 'Java - JVM',
+            value: 90
+        },
+        {
+            name: 'Ruby & RoR',
+            value: 90
+        },
         {
             name: 'React',
             value: 70
@@ -58,15 +95,7 @@ const resume = {
         },
         {
             name: 'CSS',
-            value: 50
-        },
-        {
-            name: 'JVM',
-            value: 100
-        },
-        {
-            name: 'Ruby & RoR',
-            value: 100
+            value: 30
         }
     ]
 }
