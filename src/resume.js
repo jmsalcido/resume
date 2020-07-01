@@ -51,7 +51,7 @@ const resume = {
             location: 'Hermosillo',
             time: '2013 - 2017',
             description: 'As a ​**Software Engineer**​ I worked on all the levels of the monolithic application. From the legacy code written in ColdFusion and Freemarker with Java 6 to the Single Page Application written in EmberJS with a custom framework that reproduces Redux.',
-            description_extra: 'I **leaded** several third party connectors for different ​**CRS**​ that were critical to​ launch​ multiple clients within the company. Worked with clients like **American Express**, **American Airlines**, **Aeromexico** and **Emirates**',
+            description_extra: 'I **led** several third party connectors for different ​**CRS**​ that were critical to​ launch​ multiple clients within the company. Worked with clients like **American Express**, **American Airlines**, **Aeromexico** and **Emirates**',
             technologies: [
                 'Java 6,7,8',
                 'EmberJS',
