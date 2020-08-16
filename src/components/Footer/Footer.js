@@ -7,11 +7,11 @@ function Footer() {
         <footer className="footer">
             <div className="text-center">
                 <small className="copyright">
-                    Designed with <i className="fas fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank" rel="noopener noreferrer">Xiaoying Riley</a> for developers
+                    Designed with <i className="fa fa-heart"></i> by <a href="http://themes.3rdwavemedia.com" target="_blank" rel="noopener noreferrer">Xiaoying Riley</a> for developers
                 </small>
                 <br/>
                 <small className="copyright">
-                    Coded with React and <i className="fas fa-heart"></i> by <a href="http://jmsalcido.dev" target="_blank" rel="noopener noreferrer">Jose Salcido</a>
+                    Coded with React and <i className="fa fa-heart"></i> by <a href="http://jmsalcido.dev" target="_blank" rel="noopener noreferrer">Jose Salcido</a>
                 </small>
             </div>
         </footer>

@@ -26,7 +26,7 @@ function Projects(props) {
 
     return (
         <section className="section projects-section">
-            <h2 className="section-title"><span className="icon-holder"><i className="fas fa-archive"></i></span>Projects</h2>
+            <h2 className="section-title"><span className="icon-holder"><i className="section-icon fa fa-archive"></i></span>Projects</h2>
             {header}
             {projects}
         </section>

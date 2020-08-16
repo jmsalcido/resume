@@ -5,7 +5,7 @@ function Contact(props){
         if (prop) {
             return (
                 <li className={name}>
-                    <i className={faClass}></i>
+                    <i className={faClass} style={{paddingRight: 10}}></i>
                     {blank ? 
                         <a href={href} rel="noopener noreferrer" target="_blank">{text}</a>
                         :
@@ -18,12 +18,12 @@ function Contact(props){
         }
     }
 
-    let email = listItem(props.email, "email", "fas fa-envelope", `mailto: ${props.email}`, false, props.email);
-    let phone = listItem(props.phone, "phone", "fas fa-phone", `tel:${props.phone}`, false, props.phone);
-    let website = listItem(props.website, "website", "fas fa-globe", props.website.url, true,  props.website.name);
-    let linkedin = listItem(props.linkedin, "linkedin", "fab fa-linkedin-in", `https://linkedin.com/in/${props.linkedin}`, true, props.linkedin);
-    let github = listItem(props.linkedin, "github", "fab fa-github", `https://github.com/${props.github}`, true, props.github);
-    let twitter = listItem(props.twitter, "twitter", "fab fa-twitter", `https://twitter.com/${props.twitter}`, true, `@${props.twitter}`);
+    let email = listItem(props.email, "email", "fa fa-envelope fa-lg", `mailto: ${props.email}`, false, props.email);
+    let phone = listItem(props.phone, "phone", "fa fa-phone fa-lg", `tel:${props.phone}`, false, props.phone);
+    let website = listItem(props.website, "website", "fa fa-globe fa-lg", props.website.url, true,  props.website.name);
+    let linkedin = listItem(props.linkedin, "linkedin", "fa fa-linkedin fa-lg", `https://linkedin.com/in/${props.linkedin}`, true, props.linkedin);
+    let github = listItem(props.linkedin, "github", "fa fa-github fa-lg", `https://github.com/${props.github}`, true, props.github);
+    let twitter = listItem(props.twitter, "twitter", "fa fa-twitter fa-lg", `https://twitter.com/${props.twitter}`, true, `@${props.twitter}`);
 
     return (
         <div className="contact-container container-block">

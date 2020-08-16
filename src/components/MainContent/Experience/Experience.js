@@ -39,7 +39,7 @@ function Experience(props) {
 
     return (
         <section className="section experiences-section">
-            <h2 className="section-title"><span className="icon-holder"><i className="fas fa-briefcase"></i></span>Experiences</h2>
+            <h2 className="section-title"><span className="icon-holder"><i className="section-icon fa fa-briefcase"></i></span>Experiences</h2>
             {props.experienceItems ? props.experienceItems.map(experienceItem) : null}
         </section>
     )

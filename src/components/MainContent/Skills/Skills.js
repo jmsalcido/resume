@@ -21,7 +21,7 @@ function Skills(props) {
 
     return (
         <section className="skills-section section">
-            <h2 className="section-title"><span className="icon-holder"><i className="fas fa-rocket"></i></span>Skills &amp; Proficiency</h2>
+            <h2 className="section-title"><span className="icon-holder"><i className="section-icon fa fa-rocket"></i></span>Skills &amp; Proficiency</h2>
             <div className="skillset">
                 {skills}
             </div>
