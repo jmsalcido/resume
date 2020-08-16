@@ -29,13 +29,12 @@ jobs:
     - name: Build it
       run: npm run -s build
       
-    - name: Prepare host
-      uses: appleboy/ssh-action@master
+    - name: Deploy it
+      uses: appleboy/scp-action@master
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_KEY }}
-        script: ${{ secrets.SSH_ACTION1 }}
-    
-    - name: Deploy
-      run: ${{ secrets.SSH_DEPLOY }}
+        rm: true
+        source: "build/*"
+        target: "/var/www/jmsalcido.dev/html"
