@@ -7,8 +7,15 @@ import developer from './developer'
 import resume from './resume'
 
 function App() {
+
+  let debugDiv = null;
+  if (process.env.NODE_ENV === 'development') {
+    debugDiv = (<div className="text-center"><small>You are running this application in <b>{process.env.NODE_ENV}</b> mode. GA: {process.env.REACT_APP_GOOGLE_ANALYTICS_ID}</small></div>)
+  }
+
   return (
     <div className="Resume">
+      {debugDiv}
       <div className="Resume wrapper">
       <Sidebar profile={developer.profile} 
                contact={developer.contact}
