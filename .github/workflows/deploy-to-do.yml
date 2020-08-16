@@ -38,9 +38,4 @@ jobs:
         script: ${{ secrets.SSH_ACTION1 }}
     
     - name: Deploy
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
-        script: ${{secrets.SSH_DEPLOY}}
+      run: ${{ secrets.SSH_DEPLOY }}
