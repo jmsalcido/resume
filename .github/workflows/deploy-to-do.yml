@@ -36,5 +36,6 @@ jobs:
         username: ${{ secrets.SSH_USERNAME }}
         key: ${{ secrets.SSH_KEY }}
         rm: true
+        strip_components: 1
         source: "build/*"
         target: "/var/www/jmsalcido.dev/html"
