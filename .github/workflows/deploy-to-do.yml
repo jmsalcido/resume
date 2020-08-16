@@ -27,6 +27,8 @@ jobs:
       run: npm install
       
     - name: Build it
+      env:
+        REACT_APP_GOOGLE_ANALYTICS_ID: ${{secrets.UA_ID}}
       run: npm run -s build
       
     - name: Deploy it
