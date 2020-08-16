@@ -74,6 +74,11 @@ const resume = {
                 url: 'https://github.com/jmsalcido/resume-react',
                 description: 'A simple resume for developers in react'
             },
+            {
+                name: 'Juegathon',
+                url: 'https://juegathon.com',
+                description: 'Charity event for the city where I live currently. I plan to do this yearly.'
+            }
         ]
     },
     skills: [
