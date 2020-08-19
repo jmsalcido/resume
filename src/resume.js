@@ -78,6 +78,11 @@ const resume = {
                 name: 'Juegathon',
                 url: 'https://juegathon.com',
                 description: 'Charity event for the city where I live currently. I plan to do this yearly.'
+            },
+            {
+                name: 'Valorya the Blacksmith',
+                url: 'https://gatomocho.com/game/valorya-blacksmith',
+                description: 'Video game for PC and Mac, I composed the music.'
             }
         ]
     },
