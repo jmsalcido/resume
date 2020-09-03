@@ -75,6 +75,11 @@ const resume = {
                 description: 'A simple resume for developers in react'
             },
             {
+                name: 'unity-text-i18n',
+                url: 'https://github.com/jmsalcido/unity-text-i18n/',
+                description: 'Localization for Unity projects using a simple i18n text file.'
+            },
+            {
                 name: 'Juegathon',
                 url: 'https://juegathon.com',
                 description: 'Charity event for the city where I live currently. I plan to do this yearly.'
