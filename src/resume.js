@@ -34,7 +34,7 @@ const resume = {
             position: 'Team Lead',
             company: 'Nearsoft Inc',
             location: 'Hermosillo',
-            time: '2016 - 2017',
+            time: '2016 - 2018',
             description: 'I worked as a **Team Lead** to create different provider tools ​ sold​ to a client in Canada in the Retail Industry.',
             technologies: [
                 'PHP + Wordpress + woocommerce',
@@ -42,14 +42,28 @@ const resume = {
                 'Digital Ocean',
                 'Java and VertX',
                 'NodeJS',
-                'Ruby and RoR'
+                'Ruby on Rails'
+            ]
+        },
+        {
+            position: 'Senior Software Engineer',
+            company: 'Zed Connect via Nearsoft Inc',
+            location: 'Hermosillo',
+            time: '2018 - 2018',
+            description: 'I worked as a **Senior Software Engineer**, in charge of deployments and helping other members to be able to complete their tasks.',
+            description_extra: '**Proposed** an event-driven architecture to handle all the requests sent by the IoT device to our API.',
+            technologies: [
+                'Java 8',
+                'Spring Boot, MVC, Security, Batch',
+                'MySQL',
+                'AWS DynamoDB, Kinesis, Firehose, S3 and EC2'
             ]
         },
         {
             position: 'Software Engineer',
             company: 'Switchfly Inc via Nearsoft Inc',
             location: 'Hermosillo',
-            time: '2013 - 2017',
+            time: '2013 - 2016',
             description: 'As a ​**Software Engineer**​ I worked on all the levels of the monolithic application. From the legacy code written in ColdFusion and Freemarker with Java 6 to the Single Page Application written in EmberJS with a custom framework that reproduces Redux.',
             description_extra: 'I **led** several third party connectors for different ​**CRS**​ that were critical to​ launch​ multiple clients within the company. Worked with clients like **American Express**, **American Airlines**, **Aeromexico** and **Emirates**',
             technologies: [
