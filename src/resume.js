@@ -2,6 +2,20 @@ const resume = {
     summary: 'As an **Engineer** in any team, my main **goal** is to help my customers to fulfill their objectives. I am good at adapting to any style of development with any technology. I propose and apply changes to leverage our team and get things done in a **wholesome** manner.',
     experiences: [
         {
+            position: 'Software Engineer',
+            company: 'Switchfly Inc',
+            location: 'Remote',
+            time: '2021 - current',
+            description: 'As a ​**Software Engineer**​ I work in the RJ45 internal team to make improvements over the entire platform, while maintaining 3rd party integrations.',
+            description_extra: 'Currently I am working on doing a memory improvement and detect memory leaks over the Java Backend application, also looking into how to make the application able to run in a modern environment.',
+            technologies: [
+                'Java 8, 11',
+                'EmberJS',
+                'Oracle Cloud Infrastructure',
+                'PostgresSQL'
+            ]
+        },
+        {
             position: 'Mobile & API - Tech Lead',
             company: 'Pioneer Works, Inc, Homebase',
             location: 'Remote',
@@ -76,8 +90,13 @@ const resume = {
         }
     ],
     projects: {
-        header: 'Some pet projects, those are normally **open-source** or open to colaboration.',
+        header: 'Some pet projects and other projects, those are normally **open-source** or open to colaboration.',
         items: [
+            {
+                name: 'Culto al Perro Café',
+                url: 'https://cultoperrocafe.com',
+                description: 'A local coffee shop that I co-own with a friend of mine.'
+            },
             {
                 name: 'Batos Jugando',
                 url: 'https://batosjugando.com',

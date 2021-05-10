@@ -35,7 +35,8 @@ const developer = {
         'Running',
         'Podcasting',
         'Videogames',
-        'Creating stuff'
+        'Creating stuff',
+        'I own a coffee shop'
     ]
 }
 
