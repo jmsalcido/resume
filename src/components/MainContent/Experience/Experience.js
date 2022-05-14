@@ -30,7 +30,7 @@ function Experience(props) {
                 </div>
                 <div className="details">
                     <ReactMarkdown children={item.description} />
-                    {item.description_extra ? <ReactMarkdown source={item.description_extra} /> : null}
+                    {item.description_extra ? <ReactMarkdown children={item.description_extra} /> : null}
                     {technologies(item)}
                 </div>
             </div>
