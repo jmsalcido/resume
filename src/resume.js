@@ -3,9 +3,23 @@ const resume = {
     experiences: [
         {
             position: 'Software Engineer',
-            company: 'Switchfly Inc',
+            company: 'Hims & Hers Inc',
             location: 'Remote',
             time: '2021 - current',
+            description: 'As a **Software Engineer** in the EMR Backend team I am helping the clinicians and providers of Hims and Hers to help the Rx of patients of the shop.',
+            description_extra: 'Currently simply maintaining software.',
+            technologies: [
+                'Kotlin',
+                'Spring Boot',
+                'Java 8, 11',
+                'PostgresSQL'
+            ]
+        },
+        {
+            position: 'Software Engineer',
+            company: 'Switchfly Inc',
+            location: 'Remote',
+            time: '2021 - Dic 2021',
             description: 'As a ​**Software Engineer**​ I work in the RJ45 internal team to make improvements over the entire platform, while maintaining 3rd party integrations.',
             description_extra: 'Currently I am working on doing a memory improvement and detect memory leaks over the Java Backend application, also looking into how to make the application able to run in a modern environment.',
             technologies: [
