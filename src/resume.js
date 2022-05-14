@@ -1,7 +1,6 @@
 const resume = {
     summary: 'As an **Engineer** in any team, my main **goal** is to help my customers to fulfill their objectives. I am good at adapting to any style of development with any technology. I propose and apply changes to leverage our team and get things done in a **wholesome** manner.',
-    experiences: [
-        {
+    experiences: [{
             position: 'Software Engineer',
             company: 'Hims & Hers Inc',
             location: 'Remote',
@@ -34,7 +33,7 @@ const resume = {
             company: 'Pioneer Works, Inc, Homebase',
             location: 'Remote',
             time: '2019 - 2020',
-            description: 'As a ​ **Tech Leader**, ​ I worked with the ​ mobile native apps ​ engineers and internal ​ API engineering team​ , I made decisions over how and which endpoints should be used and how those should be implemented by our engineers.', 
+            description: 'As a ​ **Tech Leader**, ​ I worked with the ​ mobile native apps ​ engineers and internal ​ API engineering team​ , I made decisions over how and which endpoints should be used and how those should be implemented by our engineers.',
             description_extra: 'Worked 100% remote with engineers on US, Egypt and Mexico',
             technologies: [
                 'Ruby',
@@ -48,7 +47,7 @@ const resume = {
             company: 'Pioneer Works, Inc, Homebase',
             location: 'Remote',
             time: '2018 - 2020',
-            description: 'As a​ **Senior Software Engineer**,​ I worked on the entire tech stack of Homebase​, from ​**Mobile Native**​ on ​Android​ and ​iOS​ to the API ​in​ Ruby​, different ​**React** components for the web app, Homebase mobile native app has **1’000’000+** installs in the US only.', 
+            description: 'As a​ **Senior Software Engineer**,​ I worked on the entire tech stack of Homebase​, from ​**Mobile Native**​ on ​Android​ and ​iOS​ to the API ​in​ Ruby​, different ​**React** components for the web app, Homebase mobile native app has **1’000’000+** installs in the US only.',
             technologies: [
                 'Ruby',
                 'RoR',
@@ -105,8 +104,7 @@ const resume = {
     ],
     projects: {
         header: 'Some pet projects and other projects, those are normally **open-source** or open to colaboration.',
-        items: [
-            {
+        items: [{
                 name: 'Culto al Perro Café',
                 url: 'https://cultoperrocafe.com',
                 description: 'A local coffee shop that I co-own with a friend of mine.'
@@ -138,8 +136,7 @@ const resume = {
             }
         ]
     },
-    skills: [
-        {
+    skills: [{
             name: 'Java - JVM',
             value: 90
         },
