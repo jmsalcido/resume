@@ -4,7 +4,7 @@ const developer = {
         tagline: 'Full Stack Developer'
     },
     contact: {
-        email: 'jose@otfusion.org',
+        email: 'jmsalcidoaguilar@gmail.com',
         phone: '+526441732018',
         website: {
             name: 'jmsalcido.dev',
