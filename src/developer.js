@@ -1,7 +1,7 @@
 const developer = {
     profile: {
         name: 'Jose Salcido',
-        tagline: 'Full Stack Developer'
+        tagline: 'Product Engineer'
     },
     contact: {
         email: 'jmsalcidoaguilar@gmail.com',
@@ -30,13 +30,14 @@ const developer = {
     ],
     interests: [
         'Composing Music',
+        'Coffee',
+        'Leadership',
         'Baking',
         'Cooking',
-        'Running',
         'Podcasting',
         'Videogames',
-        'Creating stuff',
-        'I own a coffee shop'
+        'Creating things',
+        'Running',
     ]
 }
 

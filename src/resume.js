@@ -1,10 +1,25 @@
 const resume = {
     summary: 'As an **Engineer** in any team, my main **goal** is to help my customers to fulfill their objectives. I am good at adapting to any style of development with any technology. I propose and apply changes to leverage our team and get things done in a **wholesome** manner.',
-    experiences: [{
+    experiences: [
+        {
+            position: 'Software Engineer',
+            company: 'Probably Genetic',
+            location: 'Remote',
+            time: '2022 - current',
+            description: 'As a **Software Engineer** in Probably Genetic I am looking for best solutions to our current problems, we are growing our products to achieve an entire flow to facilitate and make the best patient finding solution for rare diseases.',
+            description_extra: 'Currently my main task is to measure and improve the stability and speed of our current software products.',
+            technologies: [
+                'Python',
+                'Django',
+                'Postgres',
+                'AWS'
+            ]
+        },
+        {
             position: 'Software Engineer',
             company: 'Hims & Hers Inc',
             location: 'Remote',
-            time: '2021 - current',
+            time: '2021 - 2022',
             description: 'As a **Software Engineer** in the EMR Backend team I am helping the clinicians and providers of Hims and Hers to help the Rx of patients of the shop.',
             description_extra: 'Currently simply maintaining software.',
             technologies: [
