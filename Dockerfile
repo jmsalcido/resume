@@ -1,26 +1,21 @@
-# pull official base image
 FROM node:18.15.0-alpine
-
-# set working directory
+# Set the working directory to /app inside the container
 WORKDIR /app
-
-# Copies package.json and package-lock.json to Docker environment
-COPY package*.json ./
-
-# Installs all node packages
-RUN npm install
-
-# Copies everything over to Docker environment
+# Copy app files
 COPY . .
+# Install dependencies (npm ci makes sure the exact versions in the lockfile gets installed)
+RUN npm ci 
+# Build the app
+RUN npm run build
 
-# Build for production.
-RUN npm run build --production
-
-# Install `serve` to run the application.
-RUN npm install -g serve
-
-# Uses port which is used by the actual application
-EXPOSE 5000
-
-# Run application
-CMD serve -s build
+# Bundle static assets with nginx
+FROM nginx:1.21.0-alpine as production
+ENV NODE_ENV production
+# Copy built assets from `builder` image
+COPY --from=builder /app/build /usr/share/nginx/html
+# Add your nginx.conf
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+# Expose port
+EXPOSE 80
+# Start nginx
+CMD ["nginx", "-g", "daemon off;"]
