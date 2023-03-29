@@ -9,6 +9,7 @@ env:
   REACT_APP_GOOGLE_ANALYTICS_ID: ${{secrets.GOOGLE_TAG_ID}}
 
 on:
+  workflow_dispatch:
   push:
     branches: [main]
 
