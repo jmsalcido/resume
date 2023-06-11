@@ -16,6 +16,7 @@ on:
 
 jobs:
   build-and-publish:
+    name: Build and Push
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
@@ -41,3 +42,23 @@ jobs:
           app: ${{ env.CAPROVER_APP }}
           token: "${{ secrets.CAPROVER_APP_TOKEN }}"
           image: "${{ env.FULL_IMAGE_NAME }}"
+  notify:
+    name: Notify
+    needs: [build-and-publish]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - name: send telegram message on push
+        uses: appleboy/telegram-action@master
+        with:
+          to: ${{ secrets.TELEGRAM_TO }}
+          token: ${{ secrets.TELEGRAM_TOKEN }}
+          message: |
+            Deployment Status: ${{ job.status }}
+            
+            ${{ github.actor }}:
+            Commit message: ${{ github.event.commits[0].message }}
+            
+            Repository: ${{ github.repository }}
+            
+            See changes: https://github.com/${{ github.repository }}/commit/${{github.sha}}
