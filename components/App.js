@@ -1,10 +1,9 @@
 import React from 'react';
-import './App.css';
-import Sidebar from './components/Sidebar/Sidebar';
-import Footer from './components/Footer/Footer';
-import MainContent from './components/MainContent/MainContent';
-import developer from './developer'
-import resume from './resume'
+import Sidebar from './Sidebar/Sidebar';
+import Footer from './Footer/Footer';
+import MainContent from './MainContent/MainContent';
+import developer from '../app/developer'
+import resume from '../app/resume'
 
 function App() {
 
