@@ -6,10 +6,13 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "micro": "^10.0.1",
     "next": "^13.4.7",
+    "posthog-js": "^1.68.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-markdown": "^8.0.6",
+    "telegraf": "^4.12.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

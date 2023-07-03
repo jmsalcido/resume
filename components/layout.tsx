@@ -2,7 +2,7 @@ import React, { Suspense } from 'react';
 import Sidebar from './Sidebar/Sidebar';
 import Footer from './Footer/Footer';
 import developer from '../app/developer'
-import { AnalyticsConfig, GoogleTagManager, Posthog } from './analytics';
+import { AnalyticsConfig, GoogleTagManager } from './analytics';
 
 
 const Analytics: React.FC = () => {
@@ -12,9 +12,6 @@ const Analytics: React.FC = () => {
     }
     return (
         <>
-            <Suspense>
-                <Posthog />
-            </Suspense>
             <Suspense>
                 <GoogleTagManager />
             </Suspense>
