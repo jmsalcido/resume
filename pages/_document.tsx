@@ -11,7 +11,6 @@ class MyDoc extends Document {
     return (
       <Html>
         <Head>
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
           <meta name="theme-color" content="#000000" />
           {/* <!-- Your data here --> */}
           <link rel="icon" href="/logo.png" />

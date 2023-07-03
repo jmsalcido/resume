@@ -8,6 +8,8 @@ env:
   DOCKER_REGISTRY: ghcr.io
   GOOGLE_TAG_ID: ${{secrets.GOOGLE_TAG_ID}}
   POSTHOG_ID: ${{secrets.POSTHOG_ID}}
+  TELEGRAM_TO: ${{secrets.TELEGRAM_TO}}
+  TELEGRAM_TOKEN: ${{secrets.TELEGRAM_TOKEN}}
 
 on:
   workflow_dispatch:
@@ -24,6 +26,8 @@ jobs:
           echo "IMAGE_NAME_WITH_REGISTRY=$DOCKER_REGISTRY/$IMAGE_NAME" >> $GITHUB_ENV
           echo "GOOGLE_TAG_ID=$GOOGLE_TAG_ID" >> $GITHUB_ENV
           echo "POSTHOG_ID=$POSTHOG_ID" >> $GITHUB_ENV
+          echo "TELEGRAM_TO=$TELEGRAM_TO" >> $GITHUB_ENV
+          echo "TELEGRAM_TOKEN=$TELEGRAM_TOKEN" >> $GITHUB_ENV
           export IMAGE_NAME_WITH_REGISTRY=$DOCKER_REGISTRY/$IMAGE_NAME
           echo "FULL_IMAGE_NAME=$IMAGE_NAME_WITH_REGISTRY:$GITHUB_SHA-gitsha" >> $GITHUB_ENV
       - name: Log in to the Container registry
