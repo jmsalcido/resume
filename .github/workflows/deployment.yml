@@ -23,24 +23,32 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - run: |
-          echo "IMAGE_NAME_WITH_REGISTRY=$DOCKER_REGISTRY/$IMAGE_NAME" >> $GITHUB_ENV
-          echo "GOOGLE_TAG_ID=$GOOGLE_TAG_ID" >> $GITHUB_ENV
-          echo "POSTHOG_ID=$POSTHOG_ID" >> $GITHUB_ENV
-          echo "TELEGRAM_TO=$TELEGRAM_TO" >> $GITHUB_ENV
-          echo "TELEGRAM_TOKEN=$TELEGRAM_TOKEN" >> $GITHUB_ENV
-          echo "POSTHOG_WEBHOOK_TOKEN=$POSTHOG_WEBHOOK_TOKEN" >> $GITHUB_ENV
-          export IMAGE_NAME_WITH_REGISTRY=$DOCKER_REGISTRY/$IMAGE_NAME
-          echo "FULL_IMAGE_NAME=$IMAGE_NAME_WITH_REGISTRY:$GITHUB_SHA-gitsha" >> $GITHUB_ENV
-      - name: Log in to the Container registry
-        uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+      # Setup Docker Buildx
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v2
+      # Build and push Docker Image
+      - name: Login to Container Registry
+        uses: docker/login-action@v2
         with:
-          registry: ${{ env.DOCKER_REGISTRY }}
+          registry: ghcr.io
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
-      - name: Build and Push Release to DockerHub
-        shell: bash
-        run: ./build_and_push.sh
+      - name: Preset Image Name
+        run: echo "IMAGE_URL=$(echo ghcr.io/${{ github.repository_owner }}/${{ github.event.repository.name }}:$(echo ${{ github.sha }} | cut -c1-7) | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
+  
+      - name: Build and push Docker Image
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./Dockerfile
+          push: true
+          tags: ${{ env.IMAGE_URL }}
+          build-args: |
+            GOOGLE_TAG_ID=${{ secrets.GOOGLE_TAG_ID }}
+            POSTHOG_ID=${{ secrets.POSTHOG_ID }}
+            TELEGRAM_TO=${{ secrets.TELEGRAM_TO }}
+            TELEGRAM_TOKEN=${{ secrets.TELEGRAM_TOKEN }}
+            POSTHOG_WEBHOOK_TOKEN=${{ secrets.POSTHOG_WEBHOOK_TOKEN }}
       - name: Deploy to CapRover
         uses: caprover/deploy-from-github@d76580d79952f6841c453bb3ed37ef452b19752c
         with:
