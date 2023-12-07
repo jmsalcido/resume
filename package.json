@@ -3,16 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.16.5",
+    "@adobe/css-tools": "^4.3.2",
+    "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "micro": "^10.0.1",
     "next": "latest",
-    "posthog-js": "^1.68.5",
+    "posthog-js": "^1.93.6",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-markdown": "^8.0.6",
-    "telegraf": "^4.12.2",
+    "react-markdown": "^8.0.7",
+    "telegraf": "^4.15.3",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
