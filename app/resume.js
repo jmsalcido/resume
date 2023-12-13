@@ -12,6 +12,8 @@ const resume = {
                 'Python',
                 'Django',
                 'Postgres',
+                'TypeScript',
+                'NextJS',
                 'AWS'
             ]
         },
@@ -156,15 +158,19 @@ const resume = {
             value: 90
         },
         {
+            name: 'Python',
+            value: 90
+        },
+        {
             name: 'Ruby & RoR',
             value: 90
         },
         {
-            name: 'React',
-            value: 70
+            name: 'React & NextJS',
+            value: 80
         },
         {
-            name: 'JavaScript',
+            name: 'TypeScript & Javascript',
             value: 80
         },
         {
