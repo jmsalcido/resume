@@ -39,10 +39,10 @@ export interface Developer {
 const developer: Developer = {
   profile: {
     name: 'Jose Salcido',
-    tagline: 'Product Engineer'
+    tagline: 'Software Engineer & Entrepreneur'
   },
   contact: {
-    email: 'jmsalcidoaguilar@gmail.com',
+    email: 'jose@otfusion.org',
     phone: '+526441732018',
     website: {
       name: 'jmsalcido.dev',

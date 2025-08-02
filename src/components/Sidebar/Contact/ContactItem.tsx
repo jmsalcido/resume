@@ -10,39 +10,37 @@ interface Props {
   onMouseEnter?: () => void;
 }
 
-const faClass = (type: string) => {
+const getIcon = (type: string) => {
   switch (type) {
     case "email":
-      return "fa fa-envelope fa-lg";
+      return "📧";
     case "phone":
-      return "fa fa-phone fa-lg";
+      return "📞";
     case "website":
-      return "fa fa-globe fa-lg";
+      return "🌐";
     case "linkedin":
-      return "fa fa-linkedin fa-lg";
+      return "💼";
     case "github":
-      return "fa fa-github fa-lg";
+      return "🐙";
     case "twitter":
-      return "fa fa-twitter fa-lg";
+      return "🐦";
     default:
-      return "";
+      return "📋";
   }
 }
 
 export const ContactItem: React.FC<Props> = (props: Props) => {
   const { blank = false, href, text, type = "", onMouseEnter } = props;
   return (
-    <>
-      <i className={faClass(type)} style={{ paddingRight: 10 }}></i>
-      {blank ?
-        <a href={href}
-          rel="noopener noreferrer"
-          target="_blank"
-          onMouseEnter={onMouseEnter}>{text}
-        </a>
-        :
-        <a href={href} onMouseEnter={onMouseEnter}>{text}</a>
-      }
-    </>
+    <a 
+      href={href}
+      rel={blank ? "noopener noreferrer" : undefined}
+      target={blank ? "_blank" : undefined}
+      onMouseEnter={onMouseEnter}
+      className="flex items-center text-gray-300 hover:text-white transition-colors duration-200"
+    >
+      <span className="mr-3 text-lg">{getIcon(type)}</span>
+      <span className="text-sm">{text}</span>
+    </a>
   );
 } 

@@ -16,7 +16,7 @@ interface SidebarProps {
 
 function Sidebar(props: SidebarProps) {
   return (
-    <div className="sidebar-wrapper">
+    <div className="w-full lg:w-80 bg-gray-800 text-white">
       <Profile name={props.profile.name} tagline={props.profile.tagline}/>
       <Contact 
         email={props.contact.email}

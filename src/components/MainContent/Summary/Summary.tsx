@@ -7,9 +7,12 @@ interface SummaryProps {
 
 function Summary(props: SummaryProps) {
   return (
-    <section className="section summary-section">
-      <h2 className="section-title"><span className="icon-holder"><i className="section-icon fa fa-user"></i></span>Career Profile</h2>
-      <div className="summary">
+    <section className="mb-8">
+      <h2 className="text-2xl font-bold text-gray-800 mb-4 flex items-center">
+        <span className="mr-3 text-xl">👤</span>
+        Career Profile
+      </h2>
+      <div className="text-gray-700 leading-relaxed">
         <ReactMarkdown>{props.text}</ReactMarkdown>
       </div>
     </section>

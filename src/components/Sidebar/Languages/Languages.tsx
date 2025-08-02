@@ -8,14 +8,16 @@ interface LanguagesProps {
 function Languages(props: LanguagesProps) {
   const languageItem = (item: Language, index: number) => {
     return (
-      <li key={index}>{item.name} <span className="lang-desc">({item.level})</span></li>
+      <li key={index} className="text-gray-300 text-sm mb-1">
+        {item.name} <span className="text-gray-400">({item.level})</span>
+      </li>
     );
   };
 
   return (
-    <div className="languages-container container-block">
-      <h2 className="container-block-title">Languages</h2>
-      <ul className="list-unstyled interests-list">
+    <div className="p-6">
+      <h3 className="text-lg font-semibold text-white mb-4">Languages</h3>
+      <ul className="space-y-1">
         {props.languageItems.map(languageItem)}
       </ul>
     </div>

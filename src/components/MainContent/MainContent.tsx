@@ -14,7 +14,7 @@ interface MainContentProps {
 
 function MainContent(props: MainContentProps) {
   return (
-    <div className="main-wrapper">
+    <div className="flex-1 p-8 bg-white">
       <Summary text={props.summary} />
       <Experience experienceItems={props.experience}/>
       <Projects projectItems={props.projects.items} header={props.projects.header}/>

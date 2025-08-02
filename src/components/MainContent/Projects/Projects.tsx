@@ -11,7 +11,7 @@ function Projects(props: ProjectsProps) {
   let header = null;
   if (props.header) {
     header = (
-      <div className="intro">
+      <div className="mb-6 text-gray-700 leading-relaxed">
         <ReactMarkdown>{props.header}</ReactMarkdown>
       </div>
     );
@@ -23,15 +23,20 @@ function Projects(props: ProjectsProps) {
 
   let projects = props.projectItems.map((item, index) => {
     return (
-      <div className="item" key={index}>
-        <span className="project-title"><a href={item.url} target="_blank" rel="noopener noreferrer">{item.name}</a></span> - <span className="project-tagline">{item.description}</span>
+      <div className="mb-4" key={index}>
+        <span className="font-semibold text-blue-600 hover:text-blue-800">
+          <a href={item.url} target="_blank" rel="noopener noreferrer">{item.name}</a>
+        </span> - <span className="text-gray-700">{item.description}</span>
       </div>
     );
   });
 
   return (
-    <section className="section projects-section">
-      <h2 className="section-title"><span className="icon-holder"><i className="section-icon fa fa-archive"></i></span>Projects</h2>
+    <section className="mb-8">
+      <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+        <span className="mr-3 text-xl">📁</span>
+        Projects
+      </h2>
       {header}
       {projects}
     </section>

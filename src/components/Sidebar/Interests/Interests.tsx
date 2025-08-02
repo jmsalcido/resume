@@ -6,10 +6,12 @@ interface InterestsProps {
 
 function Interests(props: InterestsProps) {
   return (
-    <div className="interests-container container-block">
-      <h2 className="container-block-title">Interests</h2>
-      <ul className="list-unstyled interests-list">
-        {props.interestItems.map((item, index) => (<li key={index}>{item}</li>))}
+    <div className="p-6">
+      <h3 className="text-lg font-semibold text-white mb-4">Interests</h3>
+      <ul className="space-y-1">
+        {props.interestItems.map((item, index) => (
+          <li key={index} className="text-gray-300 text-sm">{item}</li>
+        ))}
       </ul>
     </div>
   );

@@ -11,23 +11,33 @@ function Skills(props: SkillsProps) {
   }
 
   let skills = props.skillItems.map((item, index) => {
-    const style = {
-      width: `${item.value}%`
-    };
     return (
-      <div key={index} className="item">
-        <h3 className="level-title">{item.name}</h3>
-        <div className="progress level-bar">
-          <div className="progress-bar theme-progress-bar" role="progressbar" style={style} aria-valuenow={item.value} aria-valuemin={0} aria-valuemax={100}></div>
+      <div key={index} className="mb-6">
+        <div className="flex justify-between items-center mb-2">
+          <h3 className="text-lg font-semibold text-gray-800">{item.name}</h3>
+          <span className="text-sm text-gray-500">{item.value}%</span>
+        </div>
+        <div className="w-full bg-gray-200 rounded-full h-2">
+          <div 
+            className="bg-blue-600 h-2 rounded-full transition-all duration-300" 
+            style={{ width: `${item.value}%` }}
+            role="progressbar" 
+            aria-valuenow={item.value} 
+            aria-valuemin={0} 
+            aria-valuemax={100}
+          ></div>
         </div>
       </div>
     );
   });
 
   return (
-    <section className="skills-section section">
-      <h2 className="section-title"><span className="icon-holder"><i className="section-icon fa fa-rocket"></i></span>Skills &amp; Proficiency</h2>
-      <div className="skillset">
+    <section className="mb-8">
+      <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
+        <span className="mr-3 text-xl">🚀</span>
+        Skills &amp; Proficiency
+      </h2>
+      <div className="space-y-4">
         {skills}
       </div>
     </section>
