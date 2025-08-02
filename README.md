@@ -67,6 +67,39 @@ npm run build
 npm run preview
 ```
 
+## 📊 Analytics with PostHog
+
+This resume template includes optional PostHog analytics integration to track visitor engagement and understand how your resume is being viewed.
+
+### Setup PostHog Analytics:
+
+1. **Create a PostHog account** at [posthog.com](https://posthog.com)
+2. **Get your project API key** from your PostHog dashboard
+3. **Add your API key** to the environment variables:
+   ```bash
+   # Create a .env file in the root directory
+   VITE_POSTHOG_API_KEY=your_posthog_api_key_here
+   VITE_POSTHOG_HOST=https://app.posthog.com
+   ```
+4. **Deploy your resume** and start tracking analytics!
+
+### What You Can Track:
+
+- **Page views** and visitor sessions
+- **Time spent** on different sections
+- **Click tracking** on contact links and projects
+- **Geographic data** of visitors
+- **Device and browser** information
+- **Custom events** for specific interactions
+
+### Privacy-First Analytics:
+
+PostHog is privacy-focused and GDPR-compliant. You can:
+- **Respect user privacy** with proper consent management
+- **Anonymize data** as needed
+- **Control data retention** policies
+- **Export data** whenever needed
+
 ## 🎨 Features
 
 - **Responsive Design** - Mobile-first design that works on all devices
