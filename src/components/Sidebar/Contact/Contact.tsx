@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContactItem, ContactItemType } from './ContactItem';
+import { ContactItem } from './ContactItem';
 import { Website } from '../../../data/developer';
 
 interface Props {

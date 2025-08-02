@@ -21,7 +21,7 @@ function Projects(props: ProjectsProps) {
     return null;
   }
 
-  let projects = props.projectItems.map((item, index) => {
+  const projects = props.projectItems.map((item, index) => {
     return (
       <div className="mb-4" key={index}>
         <span className="font-semibold text-blue-600 hover:text-blue-800">

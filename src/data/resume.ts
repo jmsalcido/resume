@@ -1,3 +1,36 @@
+export interface Experience {
+  position: string;
+  company: string;
+  location: string;
+  time: string;
+  description: string;
+  description_extra?: string;
+  technologies?: string[];
+}
+
+export interface Project {
+  name: string;
+  url: string;
+  description: string;
+}
+
+export interface Projects {
+  header: string;
+  items: Project[];
+}
+
+export interface Skill {
+  name: string;
+  value: number;
+}
+
+export interface Resume {
+  summary: string;
+  experiences: Experience[];
+  projects: Projects;
+  skills: Skill[];
+}
+
 const resume: Resume = {
   summary: 'As a **Software Engineer**, I focus on delivering solutions that help customers meet their goals. I quickly adapt to different development styles and technologies, and continuously propose and implement improvements that elevate team performance and ensure we build meaningful, reliable products.',
 

@@ -10,7 +10,7 @@ function Skills(props: SkillsProps) {
     return null;
   }
 
-  let skills = props.skillItems.map((item, index) => {
+  const skills = props.skillItems.map((item, index) => {
     return (
       <div key={index} className="mb-6">
         <div className="flex justify-between items-center mb-2">
