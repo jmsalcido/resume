@@ -35,7 +35,7 @@ const resume: Resume = {
   summary: 'As an **Engineer** in any team, my main **goal** is to help my customers to fulfill their objectives. I am good at adapting to any style of development with any technology. I propose and apply changes to leverage our team and get things done in a **wholesome** manner.',
   experiences: [
     {
-      position: 'Software Engineer',
+      position: 'Senior Software Engineer (Founding Engineer)',
       company: 'Probably Genetic',
       location: 'Remote',
       time: '2022 - current',
