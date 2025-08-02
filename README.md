@@ -107,6 +107,32 @@ This is a static site that can be deployed to any static hosting service:
 
 ## 📄 License
 
-This project is based on a free resume template by Xiaoying Riley. The original template is available at [themes.3rdwavemedia.com](http://themes.3rdwavemedia.com).
+This project is **completely free and open source**! 🎉
+
+### ✨ You are free to:
+
+- **Use this template** for your own resume
+- **Modify and customize** all content and styling
+- **Update the developer data** with your information
+- **Replace the profile picture** with your own
+- **Deploy it** to any hosting platform
+- **Share it** with others
+- **Fork and improve** the codebase
+
+### 🎯 How to Use:
+
+1. **Fork or clone** this repository
+2. **Update** `src/data/developer.ts` with your personal information
+3. **Update** `src/data/resume.ts` with your experience and skills
+4. **Replace** `public/images/developer.jpeg` with your profile picture
+5. **Customize** colors and styling in `tailwind.config.js` if desired
+6. **Deploy** to your preferred hosting service
+
+### 📝 Attribution:
+
+While not required, if you'd like to give credit:
+- Created with AI by [Jose Salcido](https://jmsalcido.dev)
+
+**Happy coding! 🚀**
 
 ---
