@@ -25,23 +25,47 @@ export interface Skill {
 }
 
 export interface Resume {
+  headline: string;
   summary: string;
-  experiences: Experience[];
-  projects: Projects;
+  focusAreas: string[];
+  highlights: string[];
+  leadership: Experience[];
+  softwareTimeline: Experience[];
+  ventures: Projects;
   skills: Skill[];
 }
 
 const resume: Resume = {
-  summary: 'As a **Software Engineer**, I focus on delivering solutions that help customers meet their goals. I quickly adapt to different development styles and technologies, and continuously propose and implement improvements that elevate team performance and ensure we build meaningful, reliable products.',
-
-  experiences: [
+  headline: 'Director of Business and CEO of a coffee roaster spanning commercial and specialty programs, blending brand leadership, operations, and craft roasting with a deep foundation in software engineering.',
+  summary: 'I lead a community-first coffee roasting business with a focus on product excellence, hospitality, and sustainable growth. My background in software engineering informs how I build systems, design customer experiences, and scale operations with clarity and discipline. I thrive at the intersection of craft, business, and technology.',
+  focusAreas: [
+    'Business leadership & operations',
+    'Coffee sourcing, roasting & retail',
+    'Product strategy & software systems'
+  ],
+  highlights: [
+    'Own end-to-end business strategy, pricing, operations, and customer experience for a specialty roaster and cafe.',
+    'Build data-informed systems for inventory, roasting schedules, and service quality to keep teams aligned.',
+    'Lead cross-functional teams with a high bar for craft, empathy, and execution.'
+  ],
+  leadership: [
+    {
+      position: 'Director of Business & CEO / Head Roaster',
+      company: 'Culto al Perro Café',
+      location: 'Hermosillo, MX',
+      time: '2020 - Present',
+      description: 'Lead the business across brand, operations, finance, and customer experience while owning the roasting program from sourcing to production.',
+      description_extra: 'Designed the operating system for the business: demand planning, inventory cadence, quality standards, and a hospitality-led retail flow that prioritizes community.'
+    }
+  ],
+  softwareTimeline: [
     {
       position: 'Senior Software Engineer (Founding Engineer)',
       company: 'Probably Genetic',
       location: 'Remote',
-      time: '2022 - current',
-      description: 'As a **Founding Engineer**, I’ve led core initiatives across infrastructure, internal tooling, and patient genomics workflows. I own and evolve critical services across our Django monorepo—powering our ChatPG (LLM based) intake/symptom checker, sequencing workflows, and sequencing operations. My work balances immediate product needs with long-term architectural scalability.',
-      description_extra: 'I designed and maintain Terraform infrastructure for our AWS environments, integrated AWS Batch pipelines for genomic processing, and built out internal tools using Retool that support operations, data, and sequencing teams. Recently focused on reliability, autoscaling, and reducing latency across core services like the Symptom-Checker and Sequencing-Service.',
+      time: 'Jan 2022 - Dec 2025',
+      description: 'As a **Founding Engineer**, I led core initiatives across infrastructure, internal tooling, and patient genomics workflows. I owned and evolved critical services across our Django monorepo—powering our ChatPG (LLM based) intake/symptom checker, sequencing workflows, and sequencing operations.',
+      description_extra: 'Role concluded on **Dec 31, 2025**. I designed and maintained Terraform infrastructure for AWS, integrated AWS Batch pipelines for genomic processing, and built internal tools using Retool that supported operations, data, and sequencing teams.',
       technologies: [
         'Python',
         'Django 4.2',
@@ -75,7 +99,7 @@ const resume: Resume = {
       position: 'Software Engineer',
       company: 'Switchfly Inc',
       location: 'Remote',
-      time: '2021 - Dic 2021',
+      time: '2021 - Dec 2021',
       description: 'Supported enhancements to the RJ45 internal platform, focusing on stability, performance, and integration reliability with external partners.',
       description_extra: 'Worked on identifying and fixing memory issues in Java-based services to enable smoother transitions to modern infrastructure.',
       technologies: [
@@ -160,13 +184,13 @@ const resume: Resume = {
     }
   ],
 
-  projects: {
-    header: 'A selection of side projects and collaborations — most are **open-source** and open to community contributions.',
+  ventures: {
+    header: 'Ventures and community collaborations that reflect my mix of business, product, and culture.',
     items: [
       {
         name: 'Culto al Perro Café',
         url: 'https://perro.cafe',
-        description: 'A specialty coffee roaster and cafe that I co-founded, focus on creating community through quality roasting and service.'
+        description: 'Specialty coffee roaster and cafe focused on community, hospitality, and high-quality sourcing and roasting.'
       },
       {
         name: 'Batos Jugando',
@@ -176,7 +200,7 @@ const resume: Resume = {
       {
         name: 'Juegathon',
         url: 'https://juegathon.com',
-        description: 'An annual charity gaming event in my city aimed at supporting local causes through gameplay.'
+        description: 'An annual charity gaming event that supports local causes through gameplay and community partnerships.'
       },
       {
         name: 'Valorya the Blacksmith',
@@ -188,28 +212,36 @@ const resume: Resume = {
 
   skills: [
     {
-      name: 'Java - JVM',
+      name: 'Business Operations',
+      value: 92
+    },
+    {
+      name: 'Roasting & Sourcing',
       value: 90
     },
     {
-      name: 'Python',
-      value: 90
+      name: 'Brand & Customer Experience',
+      value: 88
     },
     {
-      name: 'Ruby & RoR',
-      value: 90
+      name: 'Product & Strategy',
+      value: 86
     },
     {
-      name: 'React & NextJS',
+      name: 'Python & Django',
+      value: 82
+    },
+    {
+      name: 'Java & JVM',
       value: 80
     },
     {
-      name: 'TypeScript & Javascript',
-      value: 80
+      name: 'Cloud Infrastructure',
+      value: 78
     },
     {
-      name: 'CSS',
-      value: 30
+      name: 'Data & Analytics',
+      value: 75
     }
   ]
 };

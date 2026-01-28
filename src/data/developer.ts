@@ -39,10 +39,10 @@ export interface Developer {
 const developer: Developer = {
   profile: {
     name: 'Jose Salcido',
-    tagline: 'Software Engineer & Entrepreneur'
+    tagline: 'Director of Business • CEO & Head Roaster • Software Engineering Leader'
   },
   contact: {
-    email: 'jose@otfusion.org',
+    email: 'jose@perro.cafe',
     phone: '+526441732018',
     website: {
       name: 'jmsalcido.dev',
@@ -67,7 +67,7 @@ const developer: Developer = {
   }],
   interests: [
     'Composing Music',
-    'Coffee',
+    'Coffee Roasting',
     'Leadership',
     'Baking',
     'Cooking',
