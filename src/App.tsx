@@ -30,7 +30,7 @@ function App() {
 />
           <Route 
             path="/skills" 
-            element={<SkillsPage skillItems={resume.skills} />} 
+            element={<SkillsPage skillItems={resume.skills} highlights={resume.highlights} languages={developer.languages} interests={developer.interests} />} 
           />
         </Routes>
       </Layout>
