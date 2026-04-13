@@ -75,13 +75,14 @@ function Home({ contactItems }: HomeProps) {
         </div>
       </section>
 
-      <section className="rounded-3xl border border-[var(--border)] bg-white/85 p-7 shadow-[var(--shadow)] backdrop-blur animate-fade-up" style={{ animationDelay: '0.4s' }}>
+      <section className="rounded-3xl border border-[
+    var(--border)] bg-white/85 p-7 shadow-[var(--shadow)] backdrop-blur animate-fade-up" style={{ animationDelay: '0.4s' }}>
         <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--muted)]">
           Ventures & Community
         </p>
         <p className="mt-3 text-sm text-[var(--muted)]">{resume.ventures.header}</p>
-        <div className="mt-6 grid gap-4 sm:gridTR-cols-2">
-          {resume.ventures.items.map((item: any) => (
+        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          {resume.ventures.items.map((item: { name: string; url: string; description: string }) => (
             <a
               key={item.name}
               href={item.url}
