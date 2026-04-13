@@ -17,7 +17,7 @@ This document outlines the plan to address indexing issues and improve the organ
 
 ### Phase 1: Foundation & Schema (Immediate)
 - [ ] **Implement JSON-LD:** Add `Person` schema to the root component, including `knowsAbout`, `jobTitle`, and `worksFor`.
-- [    **Metadata Optimization:** Ensure every route has unique, descriptive `<title>` and `<meta description>` tags.
+- [ ] **Metadata Optimization:** Ensure every route has unique, descriptive `<title>` and `<meta description>` tags.
 
 ### Phase 2: Content Expansion (Medium Term)
 - [ ] **Create `/projects` Route:**
