@@ -45,6 +45,18 @@ body {
   }
 }
 
+@keyframes waveCrawl25 {
+  to { stroke-dashoffset: -25; }
+}
+
+@keyframes waveCrawl20 {
+  to { stroke-dashoffset: -20; }
+}
+
+@keyframes waveCrawl18 {
+  to { stroke-dashoffset: -18; }
+}
+
 .animate-fade-up {
   animation: fadeUp 0.9s ease both;
 }
