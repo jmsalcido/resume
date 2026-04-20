@@ -3,17 +3,18 @@
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
 
 :root {
-  --ink: #1e1713;
-  --muted: #5f554d;
-  --accent: #c7763a;
-  --accent-2: #2f6f6d;
-  --paper: #f7f1e8;
-  --border: rgba(30, 23, 19, 0.12);
-  --shadow: 0 16px 40px rgba(30, 23, 19, 0.12);
+  --bg: #F2F1F0;
+  --ink: #063C6B;
+  --muted: rgba(6, 60, 107, 0.60);
+  --accent: #F07A20;
+  --accent-2: #6FA3C2;
+  --border: rgba(6, 60, 107, 0.10);
+  --shadow: 0 12px 40px rgba(6, 60, 107, 0.05);
 }
 
 body {
   font-family: 'Space Grotesk', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background-color: #F2F1F0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -33,33 +34,17 @@ body {
   }
 }
 
-@keyframes floatSlow {
-  from {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-  to {
-    transform: translateY(0);
-  }
-}
-
 .animate-fade-up {
   animation: fadeUp 0.9s ease both;
 }
 
-.animate-float {
-  animation: floatSlow 9s ease-in-out infinite;
-}
-
 @media print {
   :root {
+    --bg: #ffffff;
     --ink: #111111;
     --muted: #333333;
     --accent: #000000;
     --accent-2: #000000;
-    --paper: #ffffff;
     --border: rgba(0, 0, 0, 0.18);
     --shadow: none;
   }
@@ -109,13 +94,8 @@ body {
     text-decoration: none !important;
   }
 
-  .animate-fade-up,
-  .animate-float {
+  .animate-fade-up {
     animation: none !important;
-  }
-
-  .bg-\[radial-gradient\(circle_at_top,_\#f5efe6_0%,_\#ede2d5_40%,_\#e2d6c7_100%\)\] {
-    background: #ffffff !important;
   }
 
   .backdrop-blur {
@@ -146,17 +126,6 @@ body {
 
   [class*="border"] {
     border: none !important;
-  }
-
-  .uppercase {
-    text-transform: none !important;
-  }
-
-  .tracking-\[0\.35em\],
-  .tracking-\[0\.3em\],
-  .tracking-\[0\.25em\],
-  .tracking-\[0\.2em\] {
-    letter-spacing: 0.04em !important;
   }
 
   .screen-only {
