@@ -1,5 +1,5 @@
 import React from 'react';
-import { Skill } from '../../src/data/resume';
+import { Skill } from '../data/resume';
 
 interface SkillsPageProps {
   skillItems: Skill[];
@@ -20,7 +20,7 @@ function SkillsPage({ skillItems, highlights, languages, interests }: SkillsPage
         <div className="mt-10 grid gap-6 md:grid-cols-2">
           {highlights?.map((highlight, index) => (
             <article
-              key={index}
+              key={highlight}
               className={`rounded-[2rem] border border-[#063C6B]/10 bg-white/60 p-7 shadow-[0_12px_40px_rgba(6,60,107,0.05)] backdrop-blur-sm ${index === 1 ? 'md:mt-10' : ''}`}
             >
               <p className="text-sm leading-7 text-[#063C6B]/72">{highlight}</p>
@@ -76,8 +76,8 @@ function SkillsPage({ skillItems, highlights, languages, interests }: SkillsPage
             <div>
               <div className="text-xs uppercase tracking-[0.22em] text-[#063C6B]/42 mb-4">Interests</div>
               <div className="grid grid-cols-2 gap-3">
-                {interests.map((interest, index) => (
-                  <div key={index} className="rounded-2xl border border-[#063C6B]/10 px-4 py-3 text-sm text-[#063C6B]/80">
+                {interests.map((interest) => (
+                  <div key={interest} className="rounded-2xl border border-[#063C6B]/10 px-4 py-3 text-sm text-[#063C6B]/80">
                     {interest}
                   </div>
                 ))}
