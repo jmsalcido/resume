@@ -21,9 +21,27 @@ function Layout({ children }: LayoutProps) {
           xmlns="http://www.w3.org/2000/svg"
           preserveAspectRatio="none"
         >
-          <path d="M0 196C119 168 166 121 279 121C409 121 468 240 607 240C732 240 806 149 932 149C1060 149 1111 247 1228 247C1325 247 1373 204 1440 176" stroke="#063C6B" strokeWidth="1.5" />
-          <path d="M0 266C97 266 161 212 273 212C415 212 460 332 607 332C739 332 794 251 929 251C1078 251 1131 356 1243 356C1324 356 1380 317 1440 285" stroke="#6FA3C2" strokeWidth="1.2" />
-          <path d="M0 352C137 319 188 286 301 286C426 286 493 395 615 395C751 395 812 317 942 317C1068 317 1113 407 1229 407C1324 407 1377 372 1440 339" stroke="#063C6B" strokeWidth="1" />
+          <path
+            d="M0 196C119 168 166 121 279 121C409 121 468 240 607 240C732 240 806 149 932 149C1060 149 1111 247 1228 247C1325 247 1373 204 1440 176"
+            stroke="#063C6B"
+            strokeWidth="1.5"
+            strokeDasharray="18 7"
+            style={{ animation: 'waveCrawl25 8s linear infinite' }}
+          />
+          <path
+            d="M0 266C97 266 161 212 273 212C415 212 460 332 607 332C739 332 794 251 929 251C1078 251 1131 356 1243 356C1324 356 1380 317 1440 285"
+            stroke="#6FA3C2"
+            strokeWidth="1.2"
+            strokeDasharray="14 6"
+            style={{ animation: 'waveCrawl20 13s linear infinite' }}
+          />
+          <path
+            d="M0 352C137 319 188 286 301 286C426 286 493 395 615 395C751 395 812 317 942 317C1068 317 1113 407 1229 407C1324 407 1377 372 1440 339"
+            stroke="#063C6B"
+            strokeWidth="1"
+            strokeDasharray="10 8"
+            style={{ animation: 'waveCrawl18 10s linear infinite' }}
+          />
         </svg>
 
         {/* Crest orbs */}
