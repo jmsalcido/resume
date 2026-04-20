@@ -1,8 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
-import developer from '../../src/data/developer';
-import resume from '../../src/data/resume';
+import developer from '../data/developer';
+import resume from '../data/resume';
 
 function Home() {
   return (
@@ -17,7 +17,7 @@ function Home() {
             {resume.headline.split(',')[0]}
           </h1>
           <p className="mt-8 max-w-2xl text-base leading-8 text-[#063C6B]/72 md:text-lg">
-            {resume.summary}
+            {developer.profile.tagline}
           </p>
           <div className="mt-10 flex flex-wrap gap-4">
             <Link

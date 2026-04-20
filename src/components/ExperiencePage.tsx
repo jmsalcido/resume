@@ -1,5 +1,5 @@
 import React from 'react';
-import { Experience as ExperienceType } from '../../src/data/resume';
+import { Experience as ExperienceType } from '../data/resume';
 
 interface ExperiencePageProps {
   leadership: ExperienceType[];
@@ -16,9 +16,9 @@ function ExperiencePage({ leadership, softwareEngineering }: ExperiencePageProps
           <h2 className="mt-4 font-display text-3xl tracking-[-0.04em] md:text-5xl">Directing with craft and discipline.</h2>
         </div>
         <div className="mt-10 space-y-6">
-          {leadership.map((item, index) => (
+          {leadership.map((item) => (
             <article
-              key={index}
+              key={`${item.company}-${item.position}`}
               className="rounded-[2rem] border border-[#063C6B]/10 bg-[#063C6B] p-7 text-[#F2F1F0] shadow-[0_18px_56px_rgba(6,60,107,0.12)]"
             >
               <div className="flex flex-wrap items-start justify-between gap-4">
