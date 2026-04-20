@@ -4,33 +4,30 @@ import Layout from './components/Layout';
 import Home from './components/Home';
 import ExperiencePage from './components/ExperiencePage';
 import SkillsPage from './components/SkillsPage';
+import ContactPage from './components/ContactPage';
 import developer from './data/developer';
 import resume from './data/resume';
 
 function App() {
-  const contactItems = [
-    { label: 'Email', value: developer.contact.email, href: `mailto:${developer.contact.email}` },
-    { label: 'Phone', value: developer.contact.phone, href: `tel:${developer.contact.phone}` },
-    { label: 'Website', value: developer.contact.website.name, href: developer.contact.website.url },
-    { label: 'LinkedIn', value: developer.contact.linkedin, href: `https://linkedin.com/in/${developer.contact.linkedin}` },
-    { label: 'GitHub', value: developer.contact.github, href: `https://github.com/${developer.contact.github}` }
-  ];
-
   return (
     <Router>
       <Layout>
         <Routes>
-          <Route 
-            path="/" 
-            element={<Home contactItems={contactItems} />} 
+          <Route
+            path="/"
+            element={<Home />}
           />
-<Route 
-  path="/experience" 
-  element={<ExperiencePage leadership={resume.leadership} softwareEngineering={resume.softwareTimeline} />} 
-/>
-          <Route 
-            path="/skills" 
-            element={<SkillsPage skillItems={resume.skills} highlights={resume.highlights} languages={developer.languages} interests={developer.interests} />} 
+          <Route
+            path="/experience"
+            element={<ExperiencePage leadership={resume.leadership} softwareEngineering={resume.softwareTimeline} />}
+          />
+          <Route
+            path="/skills"
+            element={<SkillsPage skillItems={resume.skills} highlights={resume.highlights} languages={developer.languages} interests={developer.interests} />}
+          />
+          <Route
+            path="/contact"
+            element={<ContactPage email={developer.contact.email} linkedin={developer.contact.linkedin} github={developer.contact.github} />}
           />
         </Routes>
       </Layout>

@@ -10,53 +10,63 @@ interface SkillsPageProps {
 
 function SkillsPage({ skillItems, highlights, languages, interests }: SkillsPageProps) {
   return (
-    <div className="space-y-10 animate-fade-up">
-      <section className="rounded-3xl border border-[var(--border)] bg-white/85 p-7 shadow-[var(--shadow)] backdrop-blur">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--muted)]">
-          Signature Strengths
-        </p>
-        <ul className="mt-5 space-y-4 text-sm text-[var(--ink)]">
+    <div className="animate-fade-up space-y-24 pb-10">
+      {/* Highlights */}
+      <section>
+        <div className="border-t border-[#063C6B]/12 pt-8">
+          <div className="text-xs uppercase tracking-[0.26em] text-[#063C6B]/42">Signature Strengths</div>
+          <h2 className="mt-4 font-display text-3xl tracking-[-0.04em] md:text-5xl">Discipline below the surface.</h2>
+        </div>
+        <div className="mt-10 grid gap-6 md:grid-cols-2">
           {highlights?.map((highlight, index) => (
-            <li key={index} className="rounded-2xl bg-[var(--paper)] p-4 leading-relaxed">
-              {highlight}
-            </li>
-          )) || (
-            <li className="rounded-2xl bg-[var(--paper)] p-4 leading-relaxed">
-              Placeholder for strength item
-            </li>
-          )}
-        </ul>
-      </section>
-
-      <section className="rounded-3xl border border-[var(--border)] bg-white/85 p-7 shadow-[var(--shadow)] backdrop-blur">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--muted)]">
-          Skills Blend
-        </p>
-        <div className="mt-5 flex flex-wrap gap-2">
-          {skillItems.map((skill) => (
-            <div
-              key={skill.name}
-              className="rounded-full border border-[var(--border)] bg-[var(--paper)] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[var(--ink)]"
+            <article
+              key={index}
+              className={`rounded-[2rem] border border-[#063C6B]/10 bg-white/60 p-7 shadow-[0_12px_40px_rgba(6,60,107,0.05)] backdrop-blur-sm ${index === 1 ? 'md:mt-10' : ''}`}
             >
-              {skill.name}
-            </div>
+              <p className="text-sm leading-7 text-[#063C6B]/72">{highlight}</p>
+            </article>
           ))}
         </div>
       </section>
 
-      <section className="rounded-3xl border border-[var(--border)] bg-white/85 p-7 shadow-[var(--shadow)] backdrop-blur">
-        <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[var(--muted)]">
-          Languages & Interests
-        </p>
-        <div className="mt-5 space-y-6 text-sm text-[var(--ink)]">
+      {/* Skills */}
+      <section className="grid gap-10 md:grid-cols-[0.86fr_1.14fr]">
+        <div className="border-t border-[#063C6B]/10 pt-8">
+          <div className="text-xs uppercase tracking-[0.26em] text-[#063C6B]/42">Skills Blend</div>
+          <h2 className="mt-4 font-display text-3xl tracking-[-0.04em] md:text-5xl">The stack beneath the work.</h2>
+          <p className="mt-5 max-w-md text-base leading-8 text-[#063C6B]/72">
+            Tools and disciplines used across business, product, and engineering contexts.
+          </p>
+        </div>
+        <div className="rounded-[2rem] border border-[#063C6B]/10 bg-white/60 p-7 shadow-[0_12px_40px_rgba(6,60,107,0.05)] backdrop-blur-sm">
+          <div className="grid grid-cols-2 gap-3">
+            {skillItems.map((skill) => (
+              <div
+                key={skill.name}
+                className="rounded-2xl border border-[#063C6B]/10 px-4 py-4 text-center text-sm text-[#063C6B]/80"
+              >
+                {skill.name}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Languages & Interests */}
+      <section className="grid gap-10 md:grid-cols-[0.95fr_1.05fr]">
+        <div className="border-t border-[#063C6B]/10 pt-8">
+          <div className="text-xs uppercase tracking-[0.26em] text-[#063C6B]/42">Languages & Interests</div>
+          <h2 className="mt-4 font-display text-3xl tracking-[-0.04em] md:text-4xl">Beyond the screen.</h2>
+        </div>
+        <div className="border-t border-[#063C6B]/10 pt-8 space-y-8">
           {languages && languages.length > 0 && (
             <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider mb-3 text-[var(--muted)]">Languages</h4>
-              <ul className="space-y-2">
+              <div className="text-xs uppercase tracking-[0.22em] text-[#063C6B]/42 mb-4">Languages</div>
+              <ul className="space-y-3">
                 {languages.map((lang, index) => (
-                  <li key={index} className="flex justify-between items-center border-b border-[var(--border)] pb-1">
+                  <li key={index} className="flex justify-between items-center border-b border-[#063C6B]/10 pb-3 text-sm text-[#063C6B]/80">
                     <span>{lang.name}</span>
-                    <span className="text-[var(--muted)] text-xs">{lang.level}</span>
+                    <span className="text-xs uppercase tracking-[0.18em] text-[#063C6B]/42">{lang.level}</span>
                   </li>
                 ))}
               </ul>
@@ -64,12 +74,12 @@ function SkillsPage({ skillItems, highlights, languages, interests }: SkillsPage
           )}
           {interests && interests.length > 0 && (
             <div>
-              <h4 className="text-xs font-bold uppercase tracking-wider mb-3 text-[var(--muted)]">Interests</h4>
-              <div className="flex flex-wrap gap-2">
+              <div className="text-xs uppercase tracking-[0.22em] text-[#063C6B]/42 mb-4">Interests</div>
+              <div className="grid grid-cols-2 gap-3">
                 {interests.map((interest, index) => (
-                  <span key={index} className="rounded-full bg-[var(--paper)] px-3 py-1 text-xs border border-[var(--border)]">
+                  <div key={index} className="rounded-2xl border border-[#063C6B]/10 px-4 py-3 text-sm text-[#063C6B]/80">
                     {interest}
-                  </span>
+                  </div>
                 ))}
               </div>
             </div>
@@ -81,8 +91,3 @@ function SkillsPage({ skillItems, highlights, languages, interests }: SkillsPage
 }
 
 export default SkillsPage;
-
-
-
-
-
