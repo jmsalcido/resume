@@ -5,6 +5,7 @@ import Home from './components/Home';
 import ExperiencePage from './components/ExperiencePage';
 import SkillsPage from './components/SkillsPage';
 import ContactPage from './components/ContactPage';
+import FunPage from './components/FunPage';
 import developer from './data/developer';
 import resume from './data/resume';
 
@@ -28,6 +29,10 @@ function App() {
           <Route
             path="/contact"
             element={<ContactPage email={developer.contact.email} linkedin={developer.contact.linkedin} github={developer.contact.github} />}
+          />
+          <Route
+            path="/fun"
+            element={<FunPage />}
           />
         </Routes>
       </Layout>

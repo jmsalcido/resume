@@ -20,6 +20,9 @@ function Navigation() {
             <Link to="/skills" className="transition hover:text-[#F07A20]">Skills</Link>
           </li>
           <li>
+            <Link to="/fun" className="transition hover:text-[#F07A20]">Fun</Link>
+          </li>
+          <li>
             <Link to="/contact" className="transition hover:text-[#F07A20]">Contact</Link>
           </li>
         </ul>
