@@ -14,7 +14,7 @@ interface MainContentProps {
 
 function MainContent(props: MainContentProps) {
   return (
-    <div className="flex-1 p-8 bg-white">
+    <div className="flex-1 rounded-[8px] border border-[var(--border-subtle)] bg-[var(--bg-ocean)]/72 p-6 shadow-[var(--shadow-card)]">
       <Summary text={props.summary} />
       <Experience experienceItems={props.experience}/>
       <Projects projectItems={props.projects.items} header={props.projects.header}/>
@@ -23,4 +23,4 @@ function MainContent(props: MainContentProps) {
   );
 }
 
-export default MainContent; 
+export default MainContent;

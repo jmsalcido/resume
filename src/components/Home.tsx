@@ -1,78 +1,95 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import { ArrowUpRight, Mail, Route } from 'lucide-react';
 import developer from '../data/developer';
 import resume from '../data/resume';
+
+function SystemsPrint() {
+  return (
+    <div className="brand-surface relative overflow-hidden p-4 md:p-6">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_68%_18%,rgba(242,180,140,0.14),transparent_16rem)]" />
+      <svg
+        className="relative aspect-[4/5] w-full"
+        viewBox="0 0 520 650"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        aria-label="Abstract wave and systems illustration"
+      >
+        <rect x="1" y="1" width="518" height="648" rx="8" fill="#063C6B" stroke="rgba(207,211,210,0.18)" />
+        <path d="M42 425C104 388 152 368 204 368C270 368 306 418 364 418C420 418 454 382 486 360" stroke="#6FA3C2" strokeWidth="2" />
+        <path d="M34 472C100 438 146 422 204 422C278 422 312 482 384 482C438 482 470 452 502 430" stroke="#F2B48C" strokeOpacity="0.7" strokeWidth="1.5" />
+        <path d="M36 520C114 494 166 482 226 482C292 482 328 532 392 532C444 532 478 510 506 494" stroke="#CFD3D2" strokeOpacity="0.52" strokeWidth="1.2" />
+        <path d="M170 162C226 116 304 112 366 156C418 194 436 256 412 318" stroke="#CFD3D2" strokeOpacity="0.7" strokeWidth="1.5" />
+        <path d="M128 334C148 278 194 242 254 238C330 232 394 270 430 342" stroke="#6FA3C2" strokeWidth="1.7" />
+        <path d="M156 230L226 178L312 214L380 154" stroke="#F07A20" strokeWidth="1.7" />
+        <circle cx="156" cy="230" r="6" fill="#F2B48C" />
+        <circle cx="226" cy="178" r="6" fill="#F2B48C" />
+        <circle cx="312" cy="214" r="6" fill="#F2B48C" />
+        <circle cx="380" cy="154" r="6" fill="#F2B48C" />
+        <path d="M82 86H218M82 114H176M82 142H236" stroke="#CFD3D2" strokeOpacity="0.55" strokeLinecap="round" />
+        <path d="M76 80V148" stroke="#F07A20" strokeWidth="2" strokeLinecap="round" />
+      </svg>
+      <div className="relative mt-4 flex items-center justify-between gap-4 border-t border-[var(--border-subtle)] pt-4">
+        <p className="font-mono text-xs text-[var(--text-muted)]/72">systems in motion</p>
+        <p className="text-xs text-[var(--accent-sand)]">{new Date().getFullYear()}</p>
+      </div>
+    </div>
+  );
+}
 
 function Home() {
   return (
     <div className="animate-fade-up">
-      {/* Hero */}
-      <section className="relative grid min-h-[78vh] items-center gap-16 py-14 md:grid-cols-[1.1fr_0.9fr] md:py-20">
-        <div className="relative z-10 max-w-3xl">
-          <div className="mb-6 text-xs uppercase tracking-[0.28em] text-[#063C6B]/45">
-            software · systems · operations · automation
-          </div>
-          <h1 className="font-display text-5xl leading-[0.94] tracking-[-0.045em] md:text-7xl lg:text-[5.6rem]">
-            {resume.headline.split(',')[0]}
+      <section className="grid min-h-[78vh] items-center gap-12 py-10 md:grid-cols-[1.08fr_0.92fr] md:py-16">
+        <div className="max-w-3xl">
+          <span className="rule-accent mb-6" />
+          <p className="font-mono text-xs text-[var(--text-muted)]/64">software · systems · operations · coffee</p>
+          <h1 className="mt-6 font-display text-5xl leading-[1.02] text-[var(--text-main)] md:text-7xl">
+            Build with intent.
           </h1>
-          <p className="mt-8 max-w-2xl text-base leading-8 text-[#063C6B]/72 md:text-lg">
+          <p className="mt-7 max-w-2xl text-lg leading-8 text-[var(--text-muted)]">
+            I lead coffee, software, and operations work with the same discipline: clear systems, durable products, and calm execution.
+          </p>
+          <p className="mt-4 max-w-xl text-sm leading-7 text-[var(--text-muted)]/72">
             {developer.profile.tagline}
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
+          <div className="mt-9 flex flex-wrap gap-3">
             <Link
               to="/experience"
-              className="inline-flex items-center rounded-full border border-[#063C6B]/18 bg-white/60 px-6 py-3 text-sm text-[#063C6B] backdrop-blur-sm transition hover:border-[#F07A20]/50 hover:text-[#F07A20]"
+              className="inline-flex items-center gap-2 rounded-[8px] border border-[var(--primary)] bg-[var(--primary)] px-5 py-3 text-sm font-medium text-white transition hover:brightness-110 active:scale-[0.97]"
             >
               View experience
+              <Route aria-hidden="true" size={16} strokeWidth={1.5} />
             </Link>
             <Link
               to="/contact"
-              className="inline-flex items-center rounded-full border border-[#063C6B] bg-[#063C6B] px-6 py-3 text-sm text-[#F2F1F0] transition hover:bg-[#0C4A80]"
+              className="inline-flex items-center gap-2 rounded-[8px] border border-[var(--border-default)] px-5 py-3 text-sm font-medium text-[var(--text-main)] transition hover:border-[var(--primary-soft)] hover:text-[var(--primary-soft)] active:scale-[0.97]"
             >
               Get in touch
+              <Mail aria-hidden="true" size={16} strokeWidth={1.5} />
             </Link>
           </div>
         </div>
 
-        {/* Decorative SVG art card */}
-        <div className="relative mx-auto w-full max-w-[30rem]">
-          <div className="absolute -left-10 top-10 h-[24rem] w-[24rem] rounded-[48%] border border-[#063C6B]/10 bg-[#6FA3C2]/10" />
-          <div className="relative overflow-hidden rounded-[2.5rem] border border-[#063C6B]/10 bg-white/60 shadow-[0_24px_80px_rgba(6,60,107,0.08)] backdrop-blur-sm">
-            <div className="aspect-[4/5] w-full bg-[linear-gradient(180deg,rgba(255,255,255,0.75),rgba(255,255,255,0.45))]">
-              <svg className="h-full w-full" viewBox="0 0 520 650" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M-40 405C58 375 104 328 175 328C238 328 271 365 320 365C377 365 409 322 468 322C527 322 578 373 635 392" stroke="#063C6B" strokeWidth="2" />
-                <path d="M-30 442C76 413 123 382 195 382C264 382 302 427 356 427C416 427 448 385 504 385C560 385 602 420 655 445" stroke="#6FA3C2" strokeWidth="2" />
-                <path d="M250 132C284 122 315 133 340 164C364 194 364 226 344 259C325 289 296 307 258 312" stroke="#063C6B" strokeWidth="2" />
-                <path d="M205 312C220 281 251 257 289 250C336 242 381 258 415 301C449 344 453 392 427 443" stroke="#063C6B" strokeWidth="2" />
-                <path d="M85 459C127 422 168 404 208 404C257 404 304 430 347 482" stroke="#063C6B" strokeWidth="1.5" />
-                <path d="M300 130C344 86 404 77 453 111C503 146 515 205 487 266" stroke="#6FA3C2" strokeWidth="1.5" />
-                <circle cx="392" cy="142" r="32" fill="#F2F1F0" stroke="#063C6B" strokeWidth="1.2" />
-              </svg>
-              <div className="absolute left-6 top-6 text-[11px] uppercase tracking-[0.28em] text-[#063C6B]/45">Systems in motion</div>
-              <div className="absolute bottom-6 left-6 max-w-[15rem] text-sm leading-6 text-[#063C6B]/58">
-                {developer.profile.name} · {new Date().getFullYear()}
-              </div>
-            </div>
-          </div>
-        </div>
+        <SystemsPrint />
       </section>
 
-      {/* Profile summary */}
-      <section className="relative mt-4 grid gap-10 md:grid-cols-[0.95fr_1.05fr] md:gap-14">
-        <div className="relative border-t border-[#063C6B]/12 pt-8">
-          <div className="text-xs uppercase tracking-[0.26em] text-[#063C6B]/42">Profile</div>
-          <h2 className="mt-4 font-display text-3xl tracking-[-0.04em] md:text-5xl">
-            Built at the intersection of craft and systems.
+      <section className="grid gap-10 border-t border-[var(--border-subtle)] pt-8 md:grid-cols-[0.9fr_1.1fr]">
+        <div>
+          <span className="rule-accent mb-5" />
+          <p className="font-mono text-xs text-[var(--text-muted)]/64">Profile</p>
+          <h2 className="mt-4 font-display text-3xl leading-tight text-[var(--text-main)] md:text-5xl">
+            Craft, business, and systems in one operating rhythm.
           </h2>
         </div>
-        <div className="relative border-t border-[#063C6B]/12 pt-8 text-[#063C6B]/72">
-          <div className="max-w-2xl text-base leading-8">
+        <div>
+          <div className="max-w-2xl text-base leading-8 text-[var(--text-muted)]">
             <ReactMarkdown>{resume.summary}</ReactMarkdown>
           </div>
-          <div className="mt-8 grid gap-3 sm:grid-cols-2">
+          <div className="mt-8 grid gap-3 sm:grid-cols-3">
             {resume.focusAreas.map((item: string) => (
-              <div key={item} className="rounded-2xl border border-[#063C6B]/10 bg-white/55 px-4 py-4 text-sm backdrop-blur-sm">
+              <div key={item} className="rounded-[8px] border border-[var(--border-subtle)] bg-[var(--bg-ocean)]/70 px-4 py-4 text-sm text-[var(--text-muted)]">
                 {item}
               </div>
             ))}
@@ -80,50 +97,34 @@ function Home() {
         </div>
       </section>
 
-      {/* Ventures */}
       <section className="mt-24">
-        <div className="flex items-end justify-between gap-8 border-b border-[#063C6B]/10 pb-4">
-          <div>
-            <div className="text-xs uppercase tracking-[0.26em] text-[#063C6B]/42">Ventures & Community</div>
-            <h2 className="mt-3 font-display text-3xl tracking-[-0.04em] md:text-5xl">Projects arranged in flow.</h2>
-          </div>
-          <div className="hidden text-sm text-[#063C6B]/42 md:block">community · craft · culture</div>
+        <div className="border-b border-[var(--border-subtle)] pb-6">
+          <span className="rule-accent mb-5" />
+          <p className="font-mono text-xs text-[var(--text-muted)]/64">Ventures & community</p>
+          <h2 className="mt-4 font-display text-3xl leading-tight text-[var(--text-main)] md:text-5xl">
+            Work arranged by discipline and care.
+          </h2>
         </div>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-[1.15fr_0.85fr]">
-          <div className="space-y-6">
-            {resume.ventures.items.slice(0, 2).map((item, idx) => (
-              <a
-                key={item.name}
-                href={item.url}
-                target="_blank"
-                rel="noreferrer"
-                className={`block rounded-[2rem] border border-[#063C6B]/10 bg-white/60 p-7 shadow-[0_12px_40px_rgba(6,60,107,0.05)] backdrop-blur-sm transition hover:-translate-y-1 hover:border-[#F07A20]/30 ${idx === 1 ? 'md:ml-10' : ''}`}
-              >
-                <div className="text-xs uppercase tracking-[0.22em] text-[#063C6B]/42">{item.description.split(' ').slice(0, 3).join(' ')}</div>
-                <h3 className="mt-3 font-display text-2xl tracking-[-0.03em] md:text-3xl">{item.name}</h3>
-                <p className="mt-4 max-w-2xl text-sm leading-7 text-[#063C6B]/72">{item.description}</p>
-              </a>
-            ))}
-          </div>
-          <div className="md:pt-14">
-            {resume.ventures.items.slice(2).map((item, idx) => (
-              <a
-                key={item.name}
-                href={item.url}
-                target="_blank"
-                rel="noreferrer"
-                className={`block rounded-[2rem] border border-[#063C6B]/10 p-7 shadow-[0_18px_56px_rgba(6,60,107,0.12)] transition hover:-translate-y-1 ${idx === 0 ? 'bg-[#063C6B] text-[#F2F1F0]' : 'bg-white/60 backdrop-blur-sm mt-6'}`}
-              >
-                <div className={`text-xs uppercase tracking-[0.22em] ${idx === 0 ? 'text-[#CFD3D2]/70' : 'text-[#063C6B]/42'}`}>
-                  {item.description.split(' ').slice(0, 3).join(' ')}
+        <div className="mt-8 grid gap-4 md:grid-cols-2">
+          {resume.ventures.items.map((item) => (
+            <a
+              key={item.name}
+              href={item.url}
+              target="_blank"
+              rel="noreferrer"
+              className="group rounded-[8px] border border-[var(--border-subtle)] bg-[var(--bg-ocean)]/72 p-6 shadow-[var(--shadow-card)] transition hover:border-[var(--primary-soft)] hover:bg-[var(--bg-ocean)] active:scale-[0.99]"
+            >
+              <div className="flex items-start justify-between gap-4">
+                <div>
+                  <p className="font-mono text-xs text-[var(--accent-sand)]">{item.description.split(' ').slice(0, 3).join(' ')}</p>
+                  <h3 className="mt-3 font-display text-2xl leading-snug text-[var(--text-main)]">{item.name}</h3>
                 </div>
-                <h3 className="mt-3 font-display text-2xl tracking-[-0.03em] md:text-3xl">{item.name}</h3>
-                <p className={`mt-4 text-sm leading-7 ${idx === 0 ? 'text-[#CFD3D2]' : 'text-[#063C6B]/72'}`}>{item.description}</p>
-                {idx === 0 && <div className="mt-8 h-px w-20 bg-[#6FA3C2]/45" />}
-              </a>
-            ))}
-          </div>
+                <ArrowUpRight aria-hidden="true" size={18} strokeWidth={1.5} className="mt-1 text-[var(--text-muted)] transition group-hover:text-[var(--primary-soft)]" />
+              </div>
+              <p className="mt-4 text-sm leading-7 text-[var(--text-muted)]/78">{item.description}</p>
+            </a>
+          ))}
         </div>
       </section>
     </div>

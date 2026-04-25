@@ -163,10 +163,10 @@ const paperNoiseUri =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='200' height='200' filter='url(%23n)' opacity='0.055'/%3E%3C/svg%3E\")";
 
 const btn = (bg: string, fg: string): React.CSSProperties => ({
-  background: bg, color: fg, border: 'none', borderRadius: 8,
-  padding: '12px 36px', fontSize: 15, fontWeight: 700,
-  fontFamily: "'Space Grotesk', sans-serif",
-  cursor: 'pointer', letterSpacing: '-0.01em',
+  background: bg, color: fg, border: '1px solid rgba(207,211,210,0.18)', borderRadius: 8,
+  padding: '12px 32px', fontSize: 14, fontWeight: 700,
+  fontFamily: "'DM Sans', sans-serif",
+  cursor: 'pointer', letterSpacing: 0,
 });
 
 function scoreFlavour(n: number) {
@@ -196,9 +196,12 @@ export default function CoffeeGame() {
   useEffect(() => {
     if (isGameOver && phase === 'playing') {
       const newBest = score > highScore;
-      if (newBest) { writeHighScore(score); setHighScore(score); }
-      setIsNewBest(newBest);
-      setPhase('gameover');
+      if (newBest) writeHighScore(score);
+      queueMicrotask(() => {
+        if (newBest) setHighScore(score);
+        setIsNewBest(newBest);
+        setPhase('gameover');
+      });
       trackEvent('game_score_submitted', { score, high_score: newBest ? score : highScore });
     }
   }, [isGameOver, phase, score, highScore]);
@@ -210,27 +213,27 @@ export default function CoffeeGame() {
 
   useEffect(() => {
     if (phase !== 'playing') return;
+    const pressedKeys = keysRef.current;
     const onDown = (e: KeyboardEvent) => {
       if (['ArrowLeft', 'ArrowRight', 'a', 'd', 'A', 'D'].includes(e.key)) {
         e.preventDefault();
-        keysRef.current.add(e.key);
+        pressedKeys.add(e.key);
       }
     };
-    const onUp = (e: KeyboardEvent) => keysRef.current.delete(e.key);
+    const onUp = (e: KeyboardEvent) => pressedKeys.delete(e.key);
     window.addEventListener('keydown', onDown);
     window.addEventListener('keyup', onUp);
     const id = setInterval(() => {
-      const k = keysRef.current;
-      if (k.has('ArrowLeft')  || k.has('a') || k.has('A'))
+      if (pressedKeys.has('ArrowLeft') || pressedKeys.has('a') || pressedKeys.has('A'))
         movePlayer(playerPosRef.current - MOVE_AMOUNT);
-      if (k.has('ArrowRight') || k.has('d') || k.has('D'))
+      if (pressedKeys.has('ArrowRight') || pressedKeys.has('d') || pressedKeys.has('D'))
         movePlayer(playerPosRef.current + MOVE_AMOUNT);
     }, INPUT_TICK);
     return () => {
       window.removeEventListener('keydown', onDown);
       window.removeEventListener('keyup', onUp);
       clearInterval(id);
-      keysRef.current.clear();
+      pressedKeys.clear();
     };
   }, [phase, movePlayer]);
 
@@ -275,11 +278,12 @@ export default function CoffeeGame() {
         className="relative overflow-hidden select-none"
         style={{
           height: 520,
-          borderRadius: 12,
-          border: '1.5px solid var(--ink)',
-          background: 'var(--bg)',
+          borderRadius: 8,
+          border: '1px solid var(--border-subtle)',
+          background: 'rgba(17, 77, 138, 0.72)',
           backgroundImage: paperNoiseUri,
-          fontFamily: "'Space Grotesk', sans-serif",
+          boxShadow: 'var(--shadow-card)',
+          fontFamily: "'DM Sans', sans-serif",
           touchAction: 'none',
         }}
         onTouchStart={onTouchStart}
@@ -291,12 +295,12 @@ export default function CoffeeGame() {
 
         {/* End-of-table bonus zones */}
         <div className="absolute inset-y-0 left-0 pointer-events-none"  style={{ width: '10%', background: 'linear-gradient(to right, rgba(240,122,32,0.08), transparent)' }} />
-        <div className="absolute inset-y-0 right-0 pointer-events-none" style={{ width: '10%', background: 'linear-gradient(to left,  rgba(240,122,32,0.08), transparent)' }} />
+        <div className="absolute inset-y-0 right-0 pointer-events-none" style={{ width: '10%', background: 'linear-gradient(to left, rgba(240,122,32,0.08), transparent)' }} />
 
         {/* HUD */}
         {phase !== 'idle' && (
           <div className="absolute top-0 left-0 right-0 flex items-center justify-between px-4 py-3 pointer-events-none" style={{ zIndex: 20 }}>
-            <span style={{ fontWeight: 700, fontSize: 15, color: 'var(--ink)', letterSpacing: '-0.02em' }}>
+            <span style={{ fontWeight: 700, fontSize: 15, color: 'var(--text-main)', letterSpacing: 0 }}>
               Score&nbsp;
               <span style={{ color: 'var(--accent)', fontWeight: 800 }}>{score}</span>
               {highScore > 0 && (
@@ -314,9 +318,9 @@ export default function CoffeeGame() {
         {/* Legend */}
         {phase === 'playing' && (
           <div className="absolute bottom-3 left-3 flex gap-3 pointer-events-none" style={{ zIndex: 20 }}>
-            <span style={{ fontSize: 10, color: '#F07A20', fontWeight: 600, opacity: 0.75, letterSpacing: '0.05em' }}>● BEAN</span>
-            <span style={{ fontSize: 10, color: '#6FA3C2', fontWeight: 600, opacity: 0.75, letterSpacing: '0.05em' }}>■ COMMIT</span>
-            <span style={{ fontSize: 10, color: 'var(--ink)', fontWeight: 600, opacity: 0.4,  letterSpacing: '0.05em' }}>2× edges</span>
+            <span style={{ fontSize: 10, color: '#F07A20', fontWeight: 600, opacity: 0.78, letterSpacing: '0.05em' }}>BEAN</span>
+            <span style={{ fontSize: 10, color: '#6FA3C2', fontWeight: 600, opacity: 0.78, letterSpacing: '0.05em' }}>COMMIT</span>
+            <span style={{ fontSize: 10, color: 'var(--text-muted)', fontWeight: 600, opacity: 0.62, letterSpacing: '0.05em' }}>2x edges</span>
           </div>
         )}
 
@@ -339,8 +343,8 @@ export default function CoffeeGame() {
               fontSize: 13,
               color: caughtLabel.color,
               whiteSpace: 'nowrap',
-              letterSpacing: '-0.01em',
-              textShadow: '0 1px 4px rgba(242,241,240,0.98)',
+              letterSpacing: 0,
+              textShadow: '0 1px 4px rgba(6,60,107,0.98)',
             }}
           >
             {caughtLabel.label}
@@ -367,40 +371,34 @@ export default function CoffeeGame() {
         {phase === 'idle' && (
           <div
             className="absolute inset-0 flex flex-col items-center justify-center gap-0"
-            style={{ background: 'rgba(242,241,240,0.9)', backdropFilter: 'blur(3px)', zIndex: 30 }}
+            style={{ background: 'rgba(6,60,107,0.88)', backdropFilter: 'blur(4px)', zIndex: 30 }}
           >
-            <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.22em', color: 'var(--muted)', textTransform: 'uppercase', marginBottom: 10 }}>
-              Play Mode
+            <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: 'var(--accent-sand)', marginBottom: 10 }}>
+              Play mode
             </p>
             <h2
               className="font-display"
-              style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', color: 'var(--ink)', letterSpacing: '-0.04em', lineHeight: 1.1, textAlign: 'center', marginBottom: 10 }}
+              style={{ fontSize: 'clamp(1.8rem, 5vw, 2.8rem)', color: 'var(--text-main)', letterSpacing: 0, lineHeight: 1.1, textAlign: 'center', marginBottom: 10 }}
             >
               The Specialty Sprint.
             </h2>
             <p style={{ fontSize: 13, color: 'var(--muted)', textAlign: 'center', maxWidth: 290, marginBottom: highScore > 0 ? 12 : 28, lineHeight: 1.6 }}>
-              Catch falling beans &amp; commits with the Oso cup.
-              Hug the edges for a&nbsp;<strong style={{ color: 'var(--accent)' }}>2× bonus</strong>.
+              Beans, commits, and a steady hand.
             </p>
 
             {highScore > 0 && (
               <p style={{ fontSize: 12, fontWeight: 700, color: 'var(--accent)', letterSpacing: '0.04em', marginBottom: 20 }}>
-                🏆 Best: {highScore} pts
+                Best: {highScore} pts
               </p>
             )}
 
-            <div className="flex gap-6 mb-7" style={{ fontSize: 12, color: 'var(--muted)' }}>
-              <span>← → or A / D&nbsp;<span style={{ opacity: 0.5 }}>desktop</span></span>
-              <span>Tap left / right&nbsp;<span style={{ opacity: 0.5 }}>mobile</span></span>
-            </div>
-
             <button
               onClick={handleStart}
-              style={btn('var(--ink)', 'var(--bg)')}
+              style={btn('var(--primary)', '#fff')}
               onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.8')}
               onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
             >
-              Start Game
+              Start game
             </button>
           </div>
         )}
@@ -411,29 +409,28 @@ export default function CoffeeGame() {
             className="absolute inset-0 flex flex-col items-center justify-center"
             style={{ background: 'rgba(6,60,107,0.9)', backdropFilter: 'blur(4px)', zIndex: 30 }}
           >
-            <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.22em', color: 'rgba(242,241,240,0.55)', textTransform: 'uppercase', marginBottom: 10 }}>
-              Game Over
+            <p style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.14em', color: 'rgba(242,241,240,0.55)', marginBottom: 10 }}>
+              Game over
             </p>
 
             {isNewBest && (
               <span style={{
                 display: 'inline-block', background: 'var(--accent)', color: '#fff',
-                fontSize: 10, fontWeight: 800, letterSpacing: '0.18em',
+                fontSize: 10, fontWeight: 800, letterSpacing: '0.12em',
                 padding: '3px 12px', borderRadius: 99, marginBottom: 10,
-                textTransform: 'uppercase',
               }}>
-                New Best!
+                New best
               </span>
             )}
 
             <h2
               className="font-display"
-              style={{ fontSize: 'clamp(2rem, 6vw, 3.2rem)', color: '#F2F1F0', letterSpacing: '-0.04em', lineHeight: 1, marginBottom: 8 }}
+              style={{ fontSize: 'clamp(2rem, 6vw, 3.2rem)', color: 'var(--text-main)', letterSpacing: 0, lineHeight: 1, marginBottom: 8 }}
             >
               {scoreFlavour(score)}
             </h2>
 
-            <p style={{ fontSize: 30, fontWeight: 800, color: 'var(--accent)', letterSpacing: '-0.03em', marginBottom: 6 }}>
+            <p style={{ fontSize: 30, fontWeight: 800, color: 'var(--accent)', letterSpacing: 0, marginBottom: 6 }}>
               {score}&nbsp;
               <span style={{ fontSize: 14, fontWeight: 600, color: 'rgba(242,241,240,0.5)' }}>pts</span>
             </p>
@@ -448,7 +445,7 @@ export default function CoffeeGame() {
               onMouseEnter={(e) => (e.currentTarget.style.opacity = '0.8')}
               onMouseLeave={(e) => (e.currentTarget.style.opacity = '1')}
             >
-              Play Again
+              Play again
             </button>
           </div>
         )}

@@ -23,7 +23,7 @@ function Contact(props: Props) {
 
   return (
     <div className="p-6">
-      <h3 className="text-lg font-semibold text-white mb-4">Contact</h3>
+      <h3 className="mb-4 text-lg font-semibold text-[var(--text-main)]">Contact</h3>
       <ul className="space-y-3">
         {email && <li>
           <ContactItem href={`mailto:${email}`}
@@ -70,4 +70,4 @@ function Contact(props: Props) {
   );
 }
 
-export default Contact; 
+export default Contact;

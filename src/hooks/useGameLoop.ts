@@ -31,7 +31,6 @@ interface UseGameLoopReturn {
 }
 
 // % units, container is 0–100 on both axes
-const PLAYER_Y        = 90;   // top of catch zone (cup rim level)
 const CATCH_RADIUS_X  = 9;    // horizontal tolerance in %
 const CATCH_BAND_TOP  = 88;   // items enter catch window here
 const CATCH_BAND_BOT  = 96;   // items exit catch window here (miss if still alive)
@@ -85,6 +84,8 @@ export function useGameLoop(): UseGameLoopReturn {
   const spawnTimerRef   = useRef<ReturnType<typeof setTimeout> | null>(null);
   const labelTimerRef   = useRef<ReturnType<typeof setTimeout> | null>(null);
   const lastTsRef       = useRef<number | null>(null);
+  const scheduleSpawnRef = useRef<() => void>(() => undefined);
+  const tickRef = useRef<(timestamp: number) => void>(() => undefined);
 
   // Keep player pos ref in sync with state
   const movePlayer = useCallback((position: number) => {
@@ -112,9 +113,12 @@ export function useGameLoop(): UseGameLoopReturn {
       };
       itemsRef.current = [...itemsRef.current, item];
       setFallingItems(itemsRef.current);
-      scheduleSpawn();
+      scheduleSpawnRef.current();
     }, delay);
   }, []);
+  useEffect(() => {
+    scheduleSpawnRef.current = scheduleSpawn;
+  }, [scheduleSpawn]);
 
   // ── Game tick (RAF callback) ───────────────────────────────────────────────
   const tick = useCallback((timestamp: number) => {
@@ -178,8 +182,11 @@ export function useGameLoop(): UseGameLoopReturn {
       });
     }
 
-    rafRef.current = requestAnimationFrame(tick);
+    rafRef.current = requestAnimationFrame((nextTimestamp) => tickRef.current(nextTimestamp));
   }, [showCaughtLabel]);
+  useEffect(() => {
+    tickRef.current = tick;
+  }, [tick]);
 
   // ── Loop control ───────────────────────────────────────────────────────────
   const stopLoop = useCallback(() => {
@@ -193,9 +200,9 @@ export function useGameLoop(): UseGameLoopReturn {
   const startGame = useCallback(() => {
     lastTsRef.current  = null;
     runningRef.current = true;
-    rafRef.current = requestAnimationFrame(tick);
+    rafRef.current = requestAnimationFrame((timestamp) => tickRef.current(timestamp));
     scheduleSpawn();
-  }, [tick, scheduleSpawn]);
+  }, [scheduleSpawn]);
 
   const resetGame = useCallback(() => {
     stopLoop();

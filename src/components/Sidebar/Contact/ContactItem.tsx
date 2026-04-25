@@ -1,4 +1,5 @@
 import React from 'react';
+import { Code2, Globe, Mail, Network, Phone, Send } from 'lucide-react';
 
 export type ContactItemType = "email" | "phone" | "website" | "linkedin" | "github" | "twitter";
 
@@ -10,37 +11,39 @@ interface Props {
   onMouseEnter?: () => void;
 }
 
-const getIcon = (type: string) => {
+const iconProps = { 'aria-hidden': true, size: 17, strokeWidth: 1.5 } as const;
+
+const renderIcon = (type: string) => {
   switch (type) {
     case "email":
-      return "📧";
+      return <Mail {...iconProps} />;
     case "phone":
-      return "📞";
+      return <Phone {...iconProps} />;
     case "website":
-      return "🌐";
+      return <Globe {...iconProps} />;
     case "linkedin":
-      return "💼";
+      return <Network {...iconProps} />;
     case "github":
-      return "🐙";
+      return <Code2 {...iconProps} />;
     case "twitter":
-      return "🐦";
+      return <Send {...iconProps} />;
     default:
-      return "📋";
+      return <Globe {...iconProps} />;
   }
 }
 
 export const ContactItem: React.FC<Props> = (props: Props) => {
   const { blank = false, href, text, type = "", onMouseEnter } = props;
   return (
-    <a 
+    <a
       href={href}
       rel={blank ? "noopener noreferrer" : undefined}
       target={blank ? "_blank" : undefined}
       onMouseEnter={onMouseEnter}
-      className="flex items-center text-gray-300 hover:text-white transition-colors duration-200"
+      className="flex items-center gap-3 text-[var(--text-muted)] transition-colors duration-200 hover:text-[var(--primary-soft)]"
     >
-      <span className="mr-3 text-lg">{getIcon(type)}</span>
-      <span className="text-sm">{text}</span>
+      {renderIcon(type)}
+      <span className="break-all text-sm">{text}</span>
     </a>
   );
-} 
+}

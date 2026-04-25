@@ -7,12 +7,12 @@ interface ProfileProps {
 
 function Profile(props: ProfileProps) {
   return (
-    <div className="p-8 bg-gray-900 text-center">
-      <img src='/images/developer.jpeg' width={100} height={100} alt="logo" className="mx-auto mb-4 rounded-full" />
-      <h1 className="text-3xl font-bold text-white mb-2">{props.name}</h1>
-      <h3 className="text-lg text-gray-300">{props.tagline}</h3>
+    <div className="border-b border-[var(--border-subtle)] p-6 text-center">
+      <img src='/images/developer.jpeg' width={100} height={100} alt="Jose Salcido" className="mx-auto mb-4 rounded-[8px]" />
+      <h1 className="mb-2 font-display text-3xl text-[var(--text-main)]">{props.name}</h1>
+      <h3 className="text-base leading-7 text-[var(--text-muted)]">{props.tagline}</h3>
     </div>
   );
 }
 
-export default Profile; 
+export default Profile;

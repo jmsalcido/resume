@@ -11,62 +11,71 @@ interface SkillsPageProps {
 function SkillsPage({ skillItems, highlights, languages, interests }: SkillsPageProps) {
   return (
     <div className="animate-fade-up space-y-24 pb-10">
-      {/* Highlights */}
       <section>
-        <div className="border-t border-[#063C6B]/12 pt-8">
-          <div className="text-xs uppercase tracking-[0.26em] text-[#063C6B]/42">Signature Strengths</div>
-          <h2 className="mt-4 font-display text-3xl tracking-[-0.04em] md:text-5xl">Discipline below the surface.</h2>
+        <div className="border-t border-[var(--border-subtle)] pt-8">
+          <span className="rule-accent mb-5" />
+          <p className="font-mono text-xs text-[var(--text-muted)]/64">Signature strengths</p>
+          <h1 className="mt-4 font-display text-4xl leading-tight text-[var(--text-main)] md:text-6xl">
+            Discipline below the surface.
+          </h1>
         </div>
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          {highlights?.map((highlight, index) => (
+        <div className="mt-10 grid gap-4 md:grid-cols-3">
+          {highlights?.map((highlight) => (
             <article
               key={highlight}
-              className={`rounded-[2rem] border border-[#063C6B]/10 bg-white/60 p-7 shadow-[0_12px_40px_rgba(6,60,107,0.05)] backdrop-blur-sm ${index === 1 ? 'md:mt-10' : ''}`}
+              className="rounded-[8px] border border-[var(--border-subtle)] bg-[var(--bg-ocean)]/72 p-6 shadow-[var(--shadow-card)]"
             >
-              <p className="text-sm leading-7 text-[#063C6B]/72">{highlight}</p>
+              <p className="text-sm leading-7 text-[var(--text-muted)]/82">{highlight}</p>
             </article>
           ))}
         </div>
       </section>
 
-      {/* Skills */}
       <section className="grid gap-10 md:grid-cols-[0.86fr_1.14fr]">
-        <div className="border-t border-[#063C6B]/10 pt-8">
-          <div className="text-xs uppercase tracking-[0.26em] text-[#063C6B]/42">Skills Blend</div>
-          <h2 className="mt-4 font-display text-3xl tracking-[-0.04em] md:text-5xl">The stack beneath the work.</h2>
-          <p className="mt-5 max-w-md text-base leading-8 text-[#063C6B]/72">
+        <div className="border-t border-[var(--border-subtle)] pt-8">
+          <span className="rule-accent mb-5" />
+          <p className="font-mono text-xs text-[var(--text-muted)]/64">Skills blend</p>
+          <h2 className="mt-4 font-display text-3xl leading-tight text-[var(--text-main)] md:text-5xl">
+            The stack beneath the work.
+          </h2>
+          <p className="mt-5 max-w-md text-base leading-8 text-[var(--text-muted)]/78">
             Tools and disciplines used across business, product, and engineering contexts.
           </p>
         </div>
-        <div className="rounded-[2rem] border border-[#063C6B]/10 bg-white/60 p-7 shadow-[0_12px_40px_rgba(6,60,107,0.05)] backdrop-blur-sm">
-          <div className="grid grid-cols-2 gap-3">
+        <div className="rounded-[8px] border border-[var(--border-subtle)] bg-[var(--bg-ocean)]/72 p-6 shadow-[var(--shadow-card)]">
+          <div className="grid gap-3 sm:grid-cols-2">
             {skillItems.map((skill) => (
-              <div
-                key={skill.name}
-                className="rounded-2xl border border-[#063C6B]/10 px-4 py-4 text-center text-sm text-[#063C6B]/80"
-              >
-                {skill.name}
+              <div key={skill.name} className="rounded-[4px] border border-[var(--border-subtle)] bg-[rgba(6,60,107,0.32)] p-4">
+                <div className="flex items-center justify-between gap-3 text-sm text-[var(--text-main)]">
+                  <span>{skill.name}</span>
+                  <span className="font-mono text-xs text-[var(--accent-sand)]">{skill.value}</span>
+                </div>
+                <div className="mt-3 h-1 overflow-hidden rounded-[100px] bg-[rgba(207,211,210,0.12)]">
+                  <div className="h-full rounded-[100px] bg-[var(--primary-soft)]" style={{ width: `${skill.value}%` }} />
+                </div>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Languages & Interests */}
       <section className="grid gap-10 md:grid-cols-[0.95fr_1.05fr]">
-        <div className="border-t border-[#063C6B]/10 pt-8">
-          <div className="text-xs uppercase tracking-[0.26em] text-[#063C6B]/42">Languages & Interests</div>
-          <h2 className="mt-4 font-display text-3xl tracking-[-0.04em] md:text-4xl">Beyond the screen.</h2>
+        <div className="border-t border-[var(--border-subtle)] pt-8">
+          <span className="rule-accent mb-5" />
+          <p className="font-mono text-xs text-[var(--text-muted)]/64">Languages & interests</p>
+          <h2 className="mt-4 font-display text-3xl leading-tight text-[var(--text-main)] md:text-5xl">
+            Beyond the screen.
+          </h2>
         </div>
-        <div className="border-t border-[#063C6B]/10 pt-8 space-y-8">
+        <div className="space-y-8 border-t border-[var(--border-subtle)] pt-8">
           {languages && languages.length > 0 && (
             <div>
-              <div className="text-xs uppercase tracking-[0.22em] text-[#063C6B]/42 mb-4">Languages</div>
+              <p className="mb-4 font-mono text-xs text-[var(--accent-sand)]">Languages</p>
               <ul className="space-y-3">
-                {languages.map((lang, index) => (
-                  <li key={index} className="flex justify-between items-center border-b border-[#063C6B]/10 pb-3 text-sm text-[#063C6B]/80">
+                {languages.map((lang) => (
+                  <li key={lang.name} className="flex items-center justify-between gap-4 border-b border-[var(--border-subtle)] pb-3 text-sm text-[var(--text-muted)]">
                     <span>{lang.name}</span>
-                    <span className="text-xs uppercase tracking-[0.18em] text-[#063C6B]/42">{lang.level}</span>
+                    <span className="font-mono text-xs text-[var(--text-muted)]/62">{lang.level}</span>
                   </li>
                 ))}
               </ul>
@@ -74,10 +83,10 @@ function SkillsPage({ skillItems, highlights, languages, interests }: SkillsPage
           )}
           {interests && interests.length > 0 && (
             <div>
-              <div className="text-xs uppercase tracking-[0.22em] text-[#063C6B]/42 mb-4">Interests</div>
+              <p className="mb-4 font-mono text-xs text-[var(--accent-sand)]">Interests</p>
               <div className="grid grid-cols-2 gap-3">
                 {interests.map((interest) => (
-                  <div key={interest} className="rounded-2xl border border-[#063C6B]/10 px-4 py-3 text-sm text-[#063C6B]/80">
+                  <div key={interest} className="rounded-[4px] border border-[var(--border-subtle)] bg-[var(--bg-ocean)]/50 px-4 py-3 text-sm text-[var(--text-muted)]">
                     {interest}
                   </div>
                 ))}

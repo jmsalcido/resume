@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
+import { FolderGit2 } from 'lucide-react';
 import { Project } from '../../../data/resume';
 
 interface ProjectsProps {
@@ -11,7 +12,7 @@ function Projects(props: ProjectsProps) {
   let header = null;
   if (props.header) {
     header = (
-      <div className="mb-6 text-gray-700 leading-relaxed">
+      <div className="mb-6 leading-8 text-[var(--text-muted)]">
         <ReactMarkdown>{props.header}</ReactMarkdown>
       </div>
     );
@@ -24,17 +25,17 @@ function Projects(props: ProjectsProps) {
   const projects = props.projectItems.map((item, index) => {
     return (
       <div className="mb-4" key={index}>
-        <span className="font-semibold text-blue-600 hover:text-blue-800">
+        <span className="font-semibold text-[var(--primary-soft)] hover:text-[var(--text-main)]">
           <a href={item.url} target="_blank" rel="noopener noreferrer">{item.name}</a>
-        </span> - <span className="text-gray-700">{item.description}</span>
+        </span> - <span className="text-[var(--text-muted)]">{item.description}</span>
       </div>
     );
   });
 
   return (
     <section className="mb-8">
-      <h2 className="text-2xl font-bold text-gray-800 mb-6 flex items-center">
-        <span className="mr-3 text-xl">📁</span>
+      <h2 className="mb-6 flex items-center gap-3 font-display text-2xl text-[var(--text-main)]">
+        <FolderGit2 aria-hidden="true" size={20} strokeWidth={1.5} />
         Projects
       </h2>
       {header}
@@ -43,4 +44,4 @@ function Projects(props: ProjectsProps) {
   );
 }
 
-export default Projects; 
+export default Projects;

@@ -1,49 +1,109 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700&family=JetBrains+Mono:wght@400;500;600&family=Shippori+Mincho:wght@400;500;600;700&display=swap');
 
 :root {
-  --bg: #F2F1F0;
-  --ink: #063C6B;
-  --muted: rgba(6, 60, 107, 0.60);
-  --accent: #F07A20;
-  --accent-2: #6FA3C2;
-  --border: rgba(6, 60, 107, 0.10);
-  --shadow: 0 12px 40px rgba(6, 60, 107, 0.05);
+  --bg-deep: #063C6B;
+  --bg-ocean: #114D8A;
+  --bg-elevated: #1A5A9E;
+  --primary: #1675A6;
+  --primary-soft: #6FA3C2;
+  --accent-red: #F02E2B;
+  --accent-orange: #F07A20;
+  --accent-sand: #F2B48C;
+  --text-main: #F2F1F0;
+  --text-muted: #CFD3D2;
+  --shadow-color: #743D4C;
+  --border-subtle: rgba(207, 211, 210, 0.15);
+  --border-default: rgba(207, 211, 210, 0.25);
+  --shadow-card: 0 4px 24px rgba(6, 60, 107, 0.5);
+  --shadow-warm: 0 4px 16px rgba(116, 61, 76, 0.3);
+
+  --bg: var(--bg-deep);
+  --ink: var(--text-main);
+  --muted: rgba(207, 211, 210, 0.72);
+  --accent: var(--accent-orange);
+  --accent-2: var(--primary-soft);
+  --border: var(--border-subtle);
+  --shadow: var(--shadow-card);
+}
+
+html {
+  background: var(--bg-deep);
 }
 
 body {
-  font-family: 'Space Grotesk', 'Segoe UI', system-ui, -apple-system, sans-serif;
-  background-color: #F2F1F0;
+  min-width: 320px;
+  margin: 0;
+  font-family: 'DM Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background:
+    radial-gradient(circle at 78% 6%, rgba(116, 61, 76, 0.22), transparent 34rem),
+    linear-gradient(180deg, #063C6B 0%, #052F55 100%);
+  color: var(--text-main);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-wrap: pretty;
+}
+
+body::before {
+  content: "";
+  pointer-events: none;
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  opacity: 0.08;
+  mix-blend-mode: screen;
+  background-image:
+    radial-gradient(rgba(242, 241, 240, 0.52) 0.65px, transparent 0.65px),
+    linear-gradient(rgba(242, 241, 240, 0.03) 1px, transparent 1px);
+  background-size: 11px 11px, 100% 40px;
+}
+
+button,
+a {
+  transition-duration: 200ms;
+  transition-timing-function: ease-out;
+}
+
+a {
+  color: inherit;
 }
 
 .font-display {
-  font-family: 'Fraunces', 'Times New Roman', serif;
+  font-family: 'Shippori Mincho', 'Noto Serif', Georgia, serif;
+}
+
+.font-mono {
+  font-family: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+.rule-accent {
+  display: block;
+  width: 40px;
+  height: 2px;
+  background: var(--accent-orange);
+}
+
+.brand-surface {
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+  background: rgba(17, 77, 138, 0.72);
+  box-shadow: var(--shadow-card);
 }
 
 @keyframes wave-float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
 }
 
-@keyframes orb-drift {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  33% { transform: translate(-6px, 10px) rotate(1.5deg); }
-  66% { transform: translate(6px, -5px) rotate(-1deg); }
-}
-
-.wave-1 { animation: wave-float 6s ease-in-out infinite; }
-.wave-2 { animation: wave-float 9s ease-in-out infinite 1.5s; }
-.wave-3 { animation: wave-float 7.5s ease-in-out infinite 3s; }
-.orb-1  { animation: orb-drift 12s ease-in-out infinite; }
-.orb-2  { animation: orb-drift 10s ease-in-out infinite 2s; }
+.wave-1 { animation: wave-float 7s ease-in-out infinite; }
+.wave-2 { animation: wave-float 9s ease-in-out infinite 1.2s; }
+.wave-3 { animation: wave-float 8s ease-in-out infinite 2.4s; }
 
 @keyframes fadeUp {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(8px);
   }
   to {
     opacity: 1;
@@ -52,23 +112,25 @@ body {
 }
 
 .animate-fade-up {
-  animation: fadeUp 0.9s ease both;
+  animation: fadeUp 0.4s ease-out both;
 }
 
 @keyframes caughtFloat {
-  0%   { opacity: 1; transform: translateX(-50%) translateY(0); }
+  0% { opacity: 1; transform: translateX(-50%) translateY(0); }
   100% { opacity: 0; transform: translateX(-50%) translateY(-36px); }
 }
+
 .animate-caught {
-  animation: caughtFloat 0.9s ease forwards;
+  animation: caughtFloat 0.9s ease-out forwards;
 }
 
 @keyframes itemDrop {
-  from { opacity: 0; transform: translate(-50%, -50%) scale(0.6); }
-  to   { opacity: 1; transform: translate(-50%, -50%) scale(1); }
+  from { opacity: 0; transform: translate(-50%, -50%) scale(0.86); }
+  to { opacity: 1; transform: translate(-50%, -50%) scale(1); }
 }
+
 .animate-item-drop {
-  animation: itemDrop 0.25s ease forwards;
+  animation: itemDrop 0.25s ease-out forwards;
 }
 
 @media print {
@@ -98,28 +160,22 @@ body {
     print-color-adjust: exact;
   }
 
+  body::before,
+  nav,
+  .screen-only {
+    display: none !important;
+  }
+
   main {
     padding: 0 !important;
   }
 
   header,
   section,
-  footer {
+  footer,
+  article {
     break-inside: avoid;
     page-break-inside: avoid;
-  }
-
-  header {
-    display: none !important;
-  }
-
-  .print-only {
-    break-after: avoid-page;
-    page-break-after: avoid;
-  }
-
-  .min-h-screen {
-    min-height: auto !important;
   }
 
   a {
@@ -127,42 +183,12 @@ body {
     text-decoration: none !important;
   }
 
-  .animate-fade-up {
-    animation: none !important;
-  }
-
-  .backdrop-blur {
-    backdrop-filter: none !important;
-  }
-
   .grid {
     display: block !important;
   }
 
-  .gap-10,
-  .gap-6,
-  .gap-5 {
-    gap: 0.75rem !important;
-  }
-
-  .space-y-10 > :not([hidden]) ~ :not([hidden]),
-  .space-y-6 > :not([hidden]) ~ :not([hidden]),
-  .space-y-5 > :not([hidden]) ~ :not([hidden]) {
-    margin-top: 0.75rem !important;
-  }
-
-  .rounded-3xl,
-  .rounded-2xl,
-  .rounded-full {
-    border-radius: 0 !important;
-  }
-
   [class*="border"] {
     border: none !important;
-  }
-
-  .screen-only {
-    display: none !important;
   }
 
   .print-only {

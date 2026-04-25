@@ -16,9 +16,9 @@ interface SidebarProps {
 
 function Sidebar(props: SidebarProps) {
   return (
-    <div className="w-full lg:w-80 bg-gray-800 text-white">
+    <div className="w-full rounded-[8px] border border-[var(--border-subtle)] bg-[var(--bg-ocean)]/72 text-[var(--text-main)] shadow-[var(--shadow-card)] lg:w-80">
       <Profile name={props.profile.name} tagline={props.profile.tagline}/>
-      <Contact 
+      <Contact
         email={props.contact.email}
         website={props.contact.website}
         phone={props.contact.phone}
@@ -33,4 +33,4 @@ function Sidebar(props: SidebarProps) {
   );
 }
 
-export default Sidebar; 
+export default Sidebar;
