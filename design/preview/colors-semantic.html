@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #063C6B; font-family: 'DM Sans', sans-serif; padding: 20px; }
+  .label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(207,211,210,0.5); margin-bottom: 12px; font-weight: 500; }
+  .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 6px; }
+  .item { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); border-radius: 6px; }
+  .dot { width: 20px; height: 20px; border-radius: 4px; flex-shrink: 0; border: 1px solid rgba(255,255,255,0.12); }
+  .info { display: flex; flex-direction: column; gap: 2px; }
+  .var  { font-size: 11px; color: #6FA3C2; font-weight: 500; }
+  .ref  { font-size: 10px; color: rgba(207,211,210,0.5); }
+</style>
+</head>
+<body>
+  <div class="label">Semantic Aliases</div>
+  <div class="grid">
+    <div class="item"><div class="dot" style="background:#063C6B"></div><div class="info"><div class="var">--bg-page</div><div class="ref">bg_deep</div></div></div>
+    <div class="item"><div class="dot" style="background:#114D8A"></div><div class="info"><div class="var">--bg-surface</div><div class="ref">bg_ocean</div></div></div>
+    <div class="item"><div class="dot" style="background:#1A5A9E"></div><div class="info"><div class="var">--bg-elevated</div><div class="ref">+10% light</div></div></div>
+    <div class="item"><div class="dot" style="background:#1675A6"></div><div class="info"><div class="var">--color-cta</div><div class="ref">primary</div></div></div>
+    <div class="item"><div class="dot" style="background:#6FA3C2"></div><div class="info"><div class="var">--color-link</div><div class="ref">primary_soft</div></div></div>
+    <div class="item"><div class="dot" style="background:#F02E2B"></div><div class="info"><div class="var">--color-danger</div><div class="ref">accent_red</div></div></div>
+    <div class="item"><div class="dot" style="background:#F07A20"></div><div class="info"><div class="var">--color-warning</div><div class="ref">accent_orange</div></div></div>
+    <div class="item"><div class="dot" style="background:#F2B48C"></div><div class="info"><div class="var">--color-warm</div><div class="ref">accent_sand</div></div></div>
+    <div class="item"><div class="dot" style="background:#F2F1F0"></div><div class="info"><div class="var">--text-primary</div><div class="ref">text_main</div></div></div>
+    <div class="item"><div class="dot" style="background:#CFD3D2"></div><div class="info"><div class="var">--text-secondary</div><div class="ref">text_muted</div></div></div>
+    <div class="item"><div class="dot" style="background:#F2B48C"></div><div class="info"><div class="var">--text-accent</div><div class="ref">accent_sand</div></div></div>
+    <div class="item"><div class="dot" style="background:#743D4C"></div><div class="info"><div class="var">--shadow-color</div><div class="ref">shadow</div></div></div>
+  </div>
+</body>
+</html>

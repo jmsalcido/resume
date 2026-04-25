@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #063C6B; font-family: 'DM Sans', sans-serif; padding: 24px; }
+  .label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(207,211,210,0.4); margin-bottom: 16px; font-weight: 500; }
+  .row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; align-items: center; }
+  /* Primary button */
+  .btn { display: inline-flex; align-items: center; gap: 8px; font-family: 'DM Sans', sans-serif; font-weight: 500; border: none; cursor: pointer; transition: all 200ms ease-out; }
+  .btn-primary { background: #1675A6; color: #F2F1F0; padding: 10px 22px; border-radius: 8px; font-size: 14px; box-shadow: 0 4px 24px rgba(6,60,107,0.5); }
+  .btn-primary:hover { opacity: 0.85; }
+  .btn-secondary { background: transparent; color: #6FA3C2; padding: 10px 22px; border-radius: 8px; font-size: 14px; border: 1px solid rgba(111,163,194,0.4); }
+  .btn-ghost { background: transparent; color: #CFD3D2; padding: 10px 22px; border-radius: 8px; font-size: 14px; border: 1px solid rgba(207,211,210,0.2); }
+  .btn-danger { background: #F02E2B; color: #F2F1F0; padding: 10px 22px; border-radius: 8px; font-size: 14px; }
+  .btn-sm { padding: 7px 14px; font-size: 12px; border-radius: 6px; }
+  .btn-lg { padding: 14px 32px; font-size: 16px; border-radius: 10px; }
+  .btn-pill { border-radius: 100px; }
+  .btn-accent { background: #F07A20; color: #F2F1F0; padding: 10px 22px; border-radius: 8px; font-size: 14px; }
+  /* Disabled */
+  .btn-disabled { background: rgba(22,117,166,0.3); color: rgba(242,241,240,0.35); padding: 10px 22px; border-radius: 8px; font-size: 14px; cursor: not-allowed; }
+</style>
+</head>
+<body>
+  <div class="label">Buttons — Variants</div>
+  <div class="row">
+    <button class="btn btn-primary">Get in touch</button>
+    <button class="btn btn-secondary">Learn more</button>
+    <button class="btn btn-ghost">View work</button>
+    <button class="btn btn-accent">Start a project</button>
+    <button class="btn btn-danger">Delete</button>
+    <button class="btn btn-disabled" disabled>Unavailable</button>
+  </div>
+  <div class="label">Sizes</div>
+  <div class="row">
+    <button class="btn btn-primary btn-sm">Small</button>
+    <button class="btn btn-primary">Default</button>
+    <button class="btn btn-primary btn-lg">Large</button>
+    <button class="btn btn-primary btn-pill">Pill shape</button>
+  </div>
+</body>
+</html>

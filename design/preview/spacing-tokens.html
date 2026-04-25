@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #063C6B; font-family: 'DM Sans', sans-serif; padding: 20px; }
+  .label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(207,211,210,0.4); margin-bottom: 16px; font-weight: 500; }
+  .grid { display: flex; align-items: flex-end; gap: 6px; margin-bottom: 20px; }
+  .step { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .bar { background: #1675A6; border-radius: 3px; width: 28px; }
+  .val { font-size: 10px; color: rgba(207,211,210,0.55); text-align: center; }
+  .tok { font-size: 9px; color: rgba(207,211,210,0.3); text-align: center; }
+  .radii-row { display: flex; gap: 10px; align-items: center; margin-bottom: 20px; }
+  .rbox { width: 48px; height: 48px; background: #114D8A; border: 1px solid rgba(207,211,210,0.2); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 3px; }
+  .rlabel { font-size: 9px; color: rgba(207,211,210,0.5); }
+  .rval   { font-size: 10px; color: #6FA3C2; font-weight: 500; }
+  .pill-demo { background: #114D8A; border: 1px solid rgba(207,211,210,0.2); border-radius: 100px; padding: 8px 20px; font-size: 11px; color: #CFD3D2; }
+</style>
+</head>
+<body>
+  <div class="label">Spacing Scale (px)</div>
+  <div class="grid">
+    <div class="step"><div class="bar" style="height:4px"></div><div class="val">4</div><div class="tok">sp-1</div></div>
+    <div class="step"><div class="bar" style="height:8px"></div><div class="val">8</div><div class="tok">sp-2</div></div>
+    <div class="step"><div class="bar" style="height:12px"></div><div class="val">12</div><div class="tok">sp-3</div></div>
+    <div class="step"><div class="bar" style="height:16px"></div><div class="val">16</div><div class="tok">sp-4</div></div>
+    <div class="step"><div class="bar" style="height:24px"></div><div class="val">24</div><div class="tok">sp-6</div></div>
+    <div class="step"><div class="bar" style="height:32px"></div><div class="val">32</div><div class="tok">sp-8</div></div>
+    <div class="step"><div class="bar" style="height:48px"></div><div class="val">48</div><div class="tok">sp-12</div></div>
+    <div class="step"><div class="bar" style="height:64px"></div><div class="val">64</div><div class="tok">sp-16</div></div>
+  </div>
+  <div class="label">Border Radius</div>
+  <div class="radii-row">
+    <div class="step"><div class="rbox" style="border-radius:4px"><div class="rlabel">sm</div><div class="rval">4px</div></div></div>
+    <div class="step"><div class="rbox" style="border-radius:8px"><div class="rlabel">md</div><div class="rval">8px</div></div></div>
+    <div class="step"><div class="rbox" style="border-radius:12px"><div class="rlabel">lg</div><div class="rval">12px</div></div></div>
+    <div class="step"><div class="pill-demo">pill · 100px</div></div>
+  </div>
+</body>
+</html>

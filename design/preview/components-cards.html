@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=DM+Sans:wght@300;400;500&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #063C6B; font-family: 'DM Sans', sans-serif; padding: 24px; }
+  .label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(207,211,210,0.4); margin-bottom: 14px; font-weight: 500; }
+  .cards { display: flex; gap: 14px; }
+  .card {
+    background: #114D8A;
+    border: 1px solid rgba(207,211,210,0.12);
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1;
+    box-shadow: 0 4px 24px rgba(6,60,107,0.5);
+  }
+  .card-tag { font-size: 9px; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: #F07A20; margin-bottom: 10px; }
+  .card-title { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 700; color: #F2F1F0; line-height: 1.2; margin-bottom: 8px; }
+  .card-body { font-size: 13px; color: rgba(207,211,210,0.75); line-height: 1.6; margin-bottom: 14px; }
+  .card-rule { width: 32px; height: 2px; background: #F07A20; margin-bottom: 10px; }
+  .card-link { font-size: 12px; color: #6FA3C2; font-weight: 500; }
+  /* Elevated card */
+  .card-elevated {
+    background: #1A5A9E;
+    border: 1px solid rgba(207,211,210,0.18);
+    border-radius: 8px;
+    padding: 20px;
+    flex: 1;
+    box-shadow: 0 8px 48px rgba(6,60,107,0.7);
+  }
+</style>
+</head>
+<body>
+  <div class="label">Cards</div>
+  <div class="cards">
+    <div class="card">
+      <div class="card-tag">Venture</div>
+      <div class="card-rule"></div>
+      <div class="card-title">The long game</div>
+      <div class="card-body">Building companies that solve real problems over long horizons.</div>
+      <div class="card-link">Read more →</div>
+    </div>
+    <div class="card-elevated">
+      <div class="card-tag">Featured</div>
+      <div class="card-rule"></div>
+      <div class="card-title">Elevated surface</div>
+      <div class="card-body">Higher-elevation card for featured or promoted content.</div>
+      <div class="card-link">Explore →</div>
+    </div>
+    <div class="card" style="background: rgba(255,255,255,0.04)">
+      <div class="card-tag">Ghost</div>
+      <div class="card-rule"></div>
+      <div class="card-title">Ghost variant</div>
+      <div class="card-body">Subtle card for secondary content, list items, or grids.</div>
+      <div class="card-link">View →</div>
+    </div>
+  </div>
+</body>
+</html>

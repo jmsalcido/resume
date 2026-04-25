@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #063C6B; font-family: 'DM Sans', sans-serif; padding: 24px; }
+  .label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(207,211,210,0.4); margin-bottom: 14px; font-weight: 500; }
+  .row { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 20px; align-items: center; }
+  .badge {
+    display: inline-flex; align-items: center;
+    font-size: 11px; font-weight: 500;
+    padding: 3px 10px; border-radius: 100px;
+    letter-spacing: 0.04em;
+  }
+  .input-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+  .input-label { font-size: 11px; font-weight: 500; color: rgba(207,211,210,0.6); letter-spacing: 0.04em; }
+  .input {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(207,211,210,0.2);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 14px; font-family: 'DM Sans', sans-serif;
+    color: #F2F1F0; outline: none; width: 220px;
+  }
+  .input::placeholder { color: rgba(207,211,210,0.35); }
+  .input-focus { border-color: #1675A6; box-shadow: 0 0 0 3px rgba(22,117,166,0.2); }
+  .input-error { border-color: #F02E2B; box-shadow: 0 0 0 3px rgba(240,46,43,0.15); }
+  .divider { height: 1px; background: rgba(207,211,210,0.12); margin: 4px 0 16px; }
+</style>
+</head>
+<body>
+  <div class="label">Badges</div>
+  <div class="row">
+    <span class="badge" style="background:rgba(22,117,166,0.2);color:#6FA3C2;border:1px solid rgba(22,117,166,0.3)">Primary</span>
+    <span class="badge" style="background:rgba(240,122,32,0.15);color:#F07A20;border:1px solid rgba(240,122,32,0.25)">Active</span>
+    <span class="badge" style="background:rgba(240,46,43,0.15);color:#F02E2B;border:1px solid rgba(240,46,43,0.25)">Critical</span>
+    <span class="badge" style="background:rgba(242,180,140,0.12);color:#F2B48C;border:1px solid rgba(242,180,140,0.2)">Warm</span>
+    <span class="badge" style="background:rgba(207,211,210,0.08);color:#CFD3D2;border:1px solid rgba(207,211,210,0.15)">Neutral</span>
+    <span class="badge" style="background:rgba(116,61,76,0.2);color:#C47080;border:1px solid rgba(116,61,76,0.3)">Shadow</span>
+  </div>
+  <div class="divider"></div>
+  <div class="label">Form Inputs</div>
+  <div style="display:flex;gap:20px;flex-wrap:wrap">
+    <div class="input-group">
+      <div class="input-label">Default</div>
+      <input class="input" placeholder="your@email.com">
+    </div>
+    <div class="input-group">
+      <div class="input-label">Focus</div>
+      <input class="input input-focus" value="jose@salcido.co">
+    </div>
+    <div class="input-group">
+      <div class="input-label">Error</div>
+      <input class="input input-error" value="invalid-email">
+    </div>
+  </div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700;800&family=DM+Sans:wght@400;500&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #063C6B; font-family: 'DM Sans', sans-serif; padding: 0; overflow: hidden; }
+  .card {
+    width: 700px; height: 220px;
+    background: #063C6B;
+    position: relative; overflow: hidden;
+    display: flex; align-items: center;
+  }
+  .wave-svg {
+    position: absolute;
+    right: -10px; bottom: -10px;
+    width: 420px; height: 220px;
+    opacity: 0.9;
+  }
+  /* Vignette so left text reads clean */
+  .vignette {
+    position: absolute; inset: 0;
+    background: linear-gradient(90deg, #063C6B 42%, rgba(6,60,107,0.75) 62%, rgba(6,60,107,0) 100%);
+    z-index: 1;
+  }
+  .content {
+    position: relative; z-index: 2;
+    padding: 0 40px;
+    white-space: nowrap;
+  }
+  .rule { width: 40px; height: 2px; background: #F07A20; margin-bottom: 14px; }
+  .wordmark {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 38px; font-weight: 700;
+    color: #F2F1F0;
+    letter-spacing: -0.03em;
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+  .tagline {
+    font-size: 11px; font-weight: 400;
+    color: rgba(207,211,210,0.55);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+  }
+</style>
+</head>
+<body>
+<div class="card">
+
+  <!-- Great Wave SVG motif -->
+  <svg class="wave-svg" viewBox="0 0 420 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <!-- Deep background wave mass -->
+    <path d="M0 180 Q40 130 80 150 Q120 170 160 130 Q200 90 240 110 Q280 130 320 80 Q360 30 420 50 L420 220 L0 220 Z"
+          fill="#0A3F70" opacity="0.8"/>
+
+    <!-- Mid wave -->
+    <path d="M20 190 Q60 150 100 165 Q140 180 180 145 Q220 110 260 125 Q300 140 340 100 Q375 65 420 80 L420 220 L0 220 Z"
+          fill="#114D8A" opacity="0.9"/>
+
+    <!-- Main wave body — the big curl -->
+    <path d="M60 220 Q80 180 120 165 Q150 155 170 130 Q185 110 200 95 Q215 80 240 70 Q265 58 290 65 Q315 72 330 55 Q345 38 370 42 Q395 46 420 38 L420 55 Q395 62 372 60 Q350 57 338 72 Q325 88 300 82 Q272 76 248 88 Q222 100 208 118 Q194 136 178 152 Q155 172 125 182 Q95 192 80 210 L60 220 Z"
+          fill="#1675A6"/>
+
+    <!-- Wave curl cap — the iconic curling top -->
+    <path d="M290 65 Q315 55 340 42 Q360 30 385 35 Q405 40 420 35 L420 45 Q405 50 385 46 Q362 42 342 55 Q318 70 295 78 Q275 84 255 78 Q270 68 290 65 Z"
+          fill="#6FA3C2" opacity="0.85"/>
+
+    <!-- Foam claw fingers — top curl -->
+    <path d="M320 52 Q328 40 338 38 Q330 50 325 58 Z" fill="#F2F1F0" opacity="0.7"/>
+    <path d="M340 44 Q350 32 360 31 Q352 43 346 52 Z" fill="#F2F1F0" opacity="0.65"/>
+    <path d="M362 37 Q372 26 382 27 Q374 38 368 47 Z" fill="#F2F1F0" opacity="0.6"/>
+    <path d="M385 34 Q394 24 404 26 Q396 36 391 44 Z" fill="#F2F1F0" opacity="0.55"/>
+
+    <!-- Foam froth on wave front -->
+    <path d="M160 130 Q170 118 180 120 Q172 130 168 140 Z" fill="#F2F1F0" opacity="0.3"/>
+    <path d="M200 110 Q210 98 220 100 Q212 110 208 120 Z" fill="#F2F1F0" opacity="0.25"/>
+    <path d="M240 92 Q250 80 260 83 Q252 93 248 103 Z" fill="#F2F1F0" opacity="0.25"/>
+
+    <!-- Second smaller wave behind -->
+    <path d="M0 200 Q30 175 70 182 Q110 188 140 168 Q175 145 210 155 Q240 163 270 148 Q300 133 340 140 Q375 147 420 135 L420 160 Q380 170 345 163 Q308 156 278 170 Q245 185 215 175 Q185 165 150 185 Q115 205 75 198 Q38 192 0 210 Z"
+          fill="#0D4478" opacity="0.7"/>
+
+    <!-- Horizon line / Mt Fuji silhouette hint -->
+    <path d="M290 28 L310 10 L330 28 Z" fill="#114D8A" opacity="0.35"/>
+    <line x1="220" y1="28" x2="400" y2="28" stroke="rgba(111,163,194,0.12)" strokeWidth="1"/>
+
+    <!-- Accent warm undertone on wave curl -->
+    <path d="M240 70 Q265 58 290 65 Q270 68 250 76 Q238 80 235 78 Z"
+          fill="#F2B48C" opacity="0.15"/>
+  </svg>
+
+  <div class="vignette"></div>
+
+  <div class="content">
+    <div class="rule"></div>
+    <div class="wordmark">Jose Salcido</div>
+    <div class="tagline">Entrepreneur · Builder · Stoic</div>
+  </div>
+</div>
+</body>
+</html>

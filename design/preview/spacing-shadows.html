@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #063C6B; font-family: 'DM Sans', sans-serif; padding: 20px; }
+  .label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(207,211,210,0.4); margin-bottom: 14px; font-weight: 500; }
+  .row { display: flex; gap: 12px; margin-bottom: 20px; }
+  .shadow-box {
+    flex: 1; height: 60px; border-radius: 8px;
+    background: #114D8A; border: 1px solid rgba(207,211,210,0.12);
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 8px 10px;
+  }
+  .sname { font-size: 10px; color: #6FA3C2; font-weight: 500; }
+  .sval  { font-size: 9px; color: rgba(207,211,210,0.4); margin-top: 2px; }
+  .border-row { display: flex; flex-direction: column; gap: 8px; }
+  .border-demo { height: 2px; }
+  .binfo { display: flex; justify-content: space-between; align-items: center; }
+  .bname { font-size: 10px; color: #6FA3C2; }
+  .bval  { font-size: 9px; color: rgba(207,211,210,0.35); }
+</style>
+</head>
+<body>
+  <div class="label">Shadow System</div>
+  <div class="row">
+    <div class="shadow-box" style="box-shadow: 0 4px 24px rgba(6,60,107,0.5)">
+      <div class="sname">shadow-card</div>
+      <div class="sval">0 4px 24px rgba(6,60,107,.5)</div>
+    </div>
+    <div class="shadow-box" style="box-shadow: 0 8px 48px rgba(6,60,107,0.7)">
+      <div class="sname">shadow-deep</div>
+      <div class="sval">0 8px 48px rgba(6,60,107,.7)</div>
+    </div>
+    <div class="shadow-box" style="box-shadow: 0 4px 16px rgba(116,61,76,0.3)">
+      <div class="sname">shadow-warm</div>
+      <div class="sval">0 4px 16px rgba(116,61,76,.3)</div>
+    </div>
+    <div class="shadow-box" style="box-shadow: inset 0 1px 0 rgba(242,241,240,0.08)">
+      <div class="sname">shadow-inset</div>
+      <div class="sval">inset 0 1px 0 rgba(242,241,240,.08)</div>
+    </div>
+  </div>
+  <div class="label">Border Tokens</div>
+  <div class="border-row">
+    <div>
+      <div class="binfo"><div class="bname">border-subtle</div><div class="bval">rgba(207,211,210,0.15)</div></div>
+      <div class="border-demo" style="background:rgba(207,211,210,0.15); margin-top:4px"></div>
+    </div>
+    <div>
+      <div class="binfo"><div class="bname">border-default</div><div class="bval">rgba(207,211,210,0.25)</div></div>
+      <div class="border-demo" style="background:rgba(207,211,210,0.25); margin-top:4px"></div>
+    </div>
+    <div>
+      <div class="binfo"><div class="bname">border-strong</div><div class="bval">rgba(207,211,210,0.5)</div></div>
+      <div class="border-demo" style="background:rgba(207,211,210,0.5); margin-top:4px"></div>
+    </div>
+    <div style="margin-top:4px">
+      <div class="binfo"><div class="bname">rule-accent</div><div class="bval">#F07A20 · 2px · 40px</div></div>
+      <div style="width:40px; height:2px; background:#F07A20; margin-top:4px; border-radius:1px"></div>
+    </div>
+  </div>
+</body>
+</html>

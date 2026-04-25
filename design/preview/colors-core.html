@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: #063C6B; font-family: 'DM Sans', sans-serif; padding: 20px; }
+  .row { display: flex; gap: 8px; margin-bottom: 8px; }
+  .swatch {
+    flex: 1; height: 72px; border-radius: 6px;
+    display: flex; flex-direction: column; justify-content: flex-end;
+    padding: 8px 10px; border: 1px solid rgba(255,255,255,0.08);
+  }
+  .name { font-size: 11px; font-weight: 500; color: rgba(242,241,240,0.65); letter-spacing: 0.04em; }
+  .hex  { font-size: 12px; font-weight: 400; color: rgba(242,241,240,0.9); font-variant-numeric: tabular-nums; }
+  .label { font-size: 10px; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(207,211,210,0.5); margin-bottom: 10px; font-weight: 500; }
+</style>
+</head>
+<body>
+  <div class="label">Core Palette</div>
+  <div class="row">
+    <div class="swatch" style="background:#063C6B">
+      <div class="name">bg_deep</div>
+      <div class="hex">#063C6B</div>
+    </div>
+    <div class="swatch" style="background:#114D8A">
+      <div class="name">bg_ocean</div>
+      <div class="hex">#114D8A</div>
+    </div>
+    <div class="swatch" style="background:#1675A6">
+      <div class="name">primary</div>
+      <div class="hex">#1675A6</div>
+    </div>
+    <div class="swatch" style="background:#6FA3C2">
+      <div class="name">primary_soft</div>
+      <div class="hex">#6FA3C2</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="swatch" style="background:#F02E2B">
+      <div class="name">accent_red</div>
+      <div class="hex">#F02E2B</div>
+    </div>
+    <div class="swatch" style="background:#F07A20">
+      <div class="name">accent_orange</div>
+      <div class="hex">#F07A20</div>
+    </div>
+    <div class="swatch" style="background:#F2B48C">
+      <div class="name" style="color:#063C6B">accent_sand</div>
+      <div class="hex" style="color:#063C6B">#F2B48C</div>
+    </div>
+    <div class="swatch" style="background:#743D4C">
+      <div class="name">shadow</div>
+      <div class="hex">#743D4C</div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="swatch" style="background:#F2F1F0; flex: 2;">
+      <div class="name" style="color:#063C6B">text_main</div>
+      <div class="hex" style="color:#063C6B">#F2F1F0</div>
+    </div>
+    <div class="swatch" style="background:#CFD3D2; flex: 2;">
+      <div class="name" style="color:#063C6B">text_muted</div>
+      <div class="hex" style="color:#063C6B">#CFD3D2</div>
+    </div>
+  </div>
+</body>
+</html>
