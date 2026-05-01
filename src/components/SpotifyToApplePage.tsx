@@ -1,6 +1,6 @@
-import React, { FormEvent, useState } from 'react';
+import React, { FormEvent, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowLeft, ArrowUpRight, Clipboard, Check } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, Clipboard, Check, Share2 } from 'lucide-react';
 
 const SPOTIFY_TO_APPLE_ENDPOINT = 'https://backend.otfusion.org/webhook/spotify-to-apple';
 
@@ -20,26 +20,26 @@ type SpotifyToAppleResponse = {
 };
 
 function SpotifyToApplePage() {
-  const [url, setUrl] = useState('');
+  const [url, setUrl] = useState(getInitialSharedSpotifyUrl);
   const [result, setResult] = useState<AppleMusicMatch | null>(null);
   const [error, setError] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const [copied, setCopied] = useState(false);
+  const [appleUrlCopied, setAppleUrlCopied] = useState(false);
+  const [shareUrlCopied, setShareUrlCopied] = useState(false);
+  const initialSearchHandled = useRef(false);
 
-  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
-    event.preventDefault();
-
-    const trimmedUrl = url.trim();
-    if (!trimmedUrl) {
-      setError('Paste a Spotify URL first.');
-      setResult(null);
-      return;
-    }
-
+  async function searchSpotifyUrl(spotifyUrl: string, shouldUpdateUrl: boolean) {
     setIsLoading(true);
-    setCopied(false);
+    setAppleUrlCopied(false);
+    setShareUrlCopied(false);
     setError('');
     setResult(null);
+    setUrl(spotifyUrl);
+
+    if (shouldUpdateUrl) {
+      const shareUrl = buildShareUrl(spotifyUrl);
+      window.history.pushState(null, '', `${shareUrl.pathname}${shareUrl.search}`);
+    }
 
     try {
       const response = await fetch(SPOTIFY_TO_APPLE_ENDPOINT, {
@@ -47,7 +47,7 @@ function SpotifyToApplePage() {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ url: trimmedUrl }),
+        body: JSON.stringify({ url: spotifyUrl }),
       });
 
       if (!response.ok) {
@@ -68,15 +68,51 @@ function SpotifyToApplePage() {
     }
   }
 
-  async function handleCopy() {
+  useEffect(() => {
+    if (initialSearchHandled.current) return;
+    initialSearchHandled.current = true;
+
+    const sharedUrl = new URLSearchParams(window.location.search).get('url')?.trim();
+    if (sharedUrl) {
+      window.setTimeout(() => void searchSpotifyUrl(sharedUrl, false), 0);
+    }
+  }, []);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const trimmedUrl = url.trim();
+    if (!trimmedUrl) {
+      setError('Paste a Spotify URL first.');
+      setResult(null);
+      return;
+    }
+
+    await searchSpotifyUrl(trimmedUrl, true);
+  }
+
+  async function handleCopyAppleUrl() {
     if (!result?.url) return;
 
     try {
-      await navigator.clipboard.writeText(result.url);
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 1800);
+      await copyText(result.url);
+      setAppleUrlCopied(true);
+      window.setTimeout(() => setAppleUrlCopied(false), 1800);
     } catch {
       setError('Could not copy the Apple Music URL.');
+    }
+  }
+
+  async function handleCopyShareUrl() {
+    const trimmedUrl = url.trim();
+    if (!trimmedUrl) return;
+
+    try {
+      await copyText(buildShareUrl(trimmedUrl).toString());
+      setShareUrlCopied(true);
+      window.setTimeout(() => setShareUrlCopied(false), 1800);
+    } catch {
+      setError('Could not copy the share URL.');
     }
   }
 
@@ -171,11 +207,19 @@ function SpotifyToApplePage() {
                 </a>
                 <button
                   type="button"
-                  onClick={handleCopy}
+                  onClick={handleCopyShareUrl}
                   className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[8px] border border-[var(--border-subtle)] bg-[var(--bg-deep)]/42 px-4 text-sm font-semibold text-[var(--text-main)] transition hover:border-[var(--border-default)] hover:text-[var(--primary-soft)] active:scale-[0.97]"
                 >
-                  {copied ? <Check aria-hidden="true" size={16} strokeWidth={1.5} /> : <Clipboard aria-hidden="true" size={16} strokeWidth={1.5} />}
-                  {copied ? 'Copied' : 'Copy URL'}
+                  {shareUrlCopied ? <Check aria-hidden="true" size={16} strokeWidth={1.5} /> : <Share2 aria-hidden="true" size={16} strokeWidth={1.5} />}
+                  {shareUrlCopied ? 'Copied' : 'Share search'}
+                </button>
+                <button
+                  type="button"
+                  onClick={handleCopyAppleUrl}
+                  className="inline-flex min-h-11 items-center justify-center gap-2 rounded-[8px] border border-[var(--border-subtle)] bg-[var(--bg-deep)]/42 px-4 text-sm font-semibold text-[var(--text-main)] transition hover:border-[var(--border-default)] hover:text-[var(--primary-soft)] active:scale-[0.97]"
+                >
+                  {appleUrlCopied ? <Check aria-hidden="true" size={16} strokeWidth={1.5} /> : <Clipboard aria-hidden="true" size={16} strokeWidth={1.5} />}
+                  {appleUrlCopied ? 'Copied' : 'Copy URL'}
                 </button>
               </div>
             </div>
@@ -184,6 +228,41 @@ function SpotifyToApplePage() {
       )}
     </div>
   );
+}
+
+function buildShareUrl(spotifyUrl: string) {
+  const shareUrl = new URL(window.location.href);
+  shareUrl.searchParams.set('url', spotifyUrl);
+  return shareUrl;
+}
+
+function getInitialSharedSpotifyUrl() {
+  return new URLSearchParams(window.location.search).get('url')?.trim() ?? '';
+}
+
+async function copyText(text: string) {
+  try {
+    await navigator.clipboard.writeText(text);
+    return;
+  } catch {
+    const textarea = document.createElement('textarea');
+    textarea.value = text;
+    textarea.setAttribute('readonly', '');
+    textarea.style.position = 'fixed';
+    textarea.style.left = '-9999px';
+    textarea.style.top = '0';
+    document.body.appendChild(textarea);
+    textarea.select();
+
+    try {
+      const copied = document.execCommand('copy');
+      if (!copied) {
+        throw new Error('Copy command was rejected.');
+      }
+    } finally {
+      document.body.removeChild(textarea);
+    }
+  }
 }
 
 export default SpotifyToApplePage;
