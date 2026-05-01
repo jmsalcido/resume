@@ -6,6 +6,8 @@ import ExperiencePage from './components/ExperiencePage';
 import SkillsPage from './components/SkillsPage';
 import ContactPage from './components/ContactPage';
 import FunPage from './components/FunPage';
+import SpecialtySprintPage from './components/SpecialtySprintPage';
+import SpotifyToApplePage from './components/SpotifyToApplePage';
 import developer from './data/developer';
 import resume from './data/resume';
 
@@ -33,6 +35,14 @@ function App() {
           <Route
             path="/fun"
             element={<FunPage />}
+          />
+          <Route
+            path="/fun/specialty-sprint"
+            element={<SpecialtySprintPage />}
+          />
+          <Route
+            path="/fun/spotify-to-apple"
+            element={<SpotifyToApplePage />}
           />
         </Routes>
       </Layout>
